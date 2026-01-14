@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cybershield-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_APP_NAME=CyberShield AI
+      - NEXT_PUBLIC_DEMO_MODE=false
+      - FASTAPI_URL=http://backend:8001
+      - FASTAPI_API_KEY=cybershield-api-key-2024
+      - AUTH_SECRET=cybershield-dev-secret-key-at-least-32-characters-long
+      - AUTH_URL=http://localhost:3000
+    depends_on:
+      - backend
+    networks:
+      - cybershield-network
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cybershield-backend
+    ports:
+      - "8001:8001"
+    environment:
+      - APP_NAME=CyberShield AI
+      - DEMO_MODE=false
+      - API_KEY=cybershield-api-key-2024
+      - SECRET_KEY=cybershield-backend-secret-key-production
+      # Supabase PostgreSQL Database
+      - DATABASE_URL=postgresql+asyncpg://postgres:Balaraj6361@db.areondvaeynrnrstozrd.supabase.co:5432/postgres
+      - SUPABASE_URL=https://areondvaeynrnrstozrd.supabase.co
+    networks:
+      - cybershield-network
+    restart: unless-stopped
+
+networks:
+  cybershield-network:
+    driver: bridge

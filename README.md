@@ -203,3 +203,4 @@ MIT License - see LICENSE file for details.
 ---
 
 Built with ❤️ for a hackathon. This system is designed to be **secure, privacy-aware, deployable, and built by serious engineers.**
+

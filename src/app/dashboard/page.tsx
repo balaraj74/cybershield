@@ -108,7 +108,7 @@ export default function DashboardPage() {
                 <StatCard
                     title="Last Analysis"
                     value={
-                        stats.recentAlerts[0]
+                        stats.recentAlerts?.[0]?.analyzedAt
                             ? formatRelativeTime(stats.recentAlerts[0].analyzedAt)
                             : "—"
                     }

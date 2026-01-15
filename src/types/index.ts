@@ -68,6 +68,7 @@ export interface AnalysisResult {
     explanation: ExplanationSection[];
     indicators: ThreatIndicator[];
     recommendations: string[];
+    riskContributions?: { factor: string; weight: number }[];
     analyzedAt: string;
     inputHash: string; // Hash of input for reference, no raw data stored
 }

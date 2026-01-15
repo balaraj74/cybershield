@@ -1,11 +1,10 @@
 /**
  * API Route: Analyze Content
- * Secure proxy to FastAPI backend for threat analysis
+ * Performs threat analysis and saves to Supabase
  */
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
-import { analyzeContent } from "@/lib/api";
 import { getMockAnalysisResult } from "@/lib/mock-data";
 import {
     checkRateLimit,
@@ -13,6 +12,7 @@ import {
     rateLimitConfigs,
     getClientIdentifier,
 } from "@/lib/rate-limit";
+import crypto from "crypto";
 
 // Request validation schema
 const analyzeRequestSchema = z.object({
@@ -30,25 +30,16 @@ const analyzeRequestSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-    try {
-        // Check if demo mode
-        const isDemoMode = process.env.NEXT_PUBLIC_DEMO_MODE === "true" ||
-            !process.env.FASTAPI_URL ||
-            process.env.FASTAPI_URL.includes("localhost");
+    const startTime = Date.now();
 
-        // 1. Authentication check (optional in demo mode)
+    try {
         const supabase = await createClient();
+
+        // Get user
         const { data: { user } } = await supabase.auth.getUser();
 
-        if (!user && !isDemoMode) {
-            return NextResponse.json(
-                { error: { code: "UNAUTHORIZED", message: "Authentication required" } },
-                { status: 401 }
-            );
-        }
-
-        // 2. Rate limiting
-        const clientId = `${user?.id || 'demo'}:${getClientIdentifier(request)}`;
+        // Rate limiting
+        const clientId = `${user?.id || 'anon'}:${getClientIdentifier(request)}`;
         const rateLimitResult = checkRateLimit(clientId, rateLimitConfigs.analysis);
 
         if (!rateLimitResult.success) {
@@ -66,7 +57,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // 3. Parse and validate request body
+        // Parse and validate request body
         let body;
         try {
             body = await request.json();
@@ -90,48 +81,64 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { type, content, metadata } = validation.data;
+        const { type, content } = validation.data;
 
-        // 4. Forward to FastAPI or use mock data
-        let result;
+        // Generate hash for privacy (never store raw content)
+        const inputHash = crypto.createHash("sha256")
+            .update(content + Date.now().toString())
+            .digest("hex")
+            .substring(0, 16);
 
-        if (isDemoMode) {
-            // Demo mode: Use mock analysis
-            result = await getMockAnalysisResult(type, content);
-        } else {
-            // Production: Forward to FastAPI backend
-            try {
-                const apiResponse = await analyzeContent({
-                    type,
-                    content,
-                    metadata,
-                });
+        // Perform analysis (using mock for now, can be replaced with AI)
+        const analysisResult = await getMockAnalysisResult(type, content);
 
-                if (!apiResponse.success || !apiResponse.data) {
-                    // Fallback to mock on error
-                    result = await getMockAnalysisResult(type, content);
-                } else {
-                    result = apiResponse.data;
-                }
-            } catch {
-                // Fallback to mock on error
-                result = await getMockAnalysisResult(type, content);
-            }
+        const processingTime = Date.now() - startTime;
+
+        // Save to Supabase
+        const { data: savedAnalysis, error: saveError } = await supabase
+            .from("threat_analyses")
+            .insert({
+                input_hash: inputHash,
+                input_type: type,
+                threat_type: analysisResult.threatType,
+                severity: analysisResult.severity,
+                risk_score: analysisResult.riskScore,
+                confidence: analysisResult.confidence,
+                summary: analysisResult.summary,
+                explanation: JSON.stringify(analysisResult.explanation),
+                indicators: JSON.stringify(analysisResult.indicators),
+                recommendations: JSON.stringify(analysisResult.recommendations),
+                risk_contributions: JSON.stringify(analysisResult.riskContributions || []),
+                processing_time_ms: processingTime,
+                model_version: "1.0.0",
+                analyzed_by: user?.id || null
+            })
+            .select()
+            .single();
+
+        if (saveError) {
+            console.error("Failed to save analysis:", saveError);
+            // Continue even if save fails - still return the result
         }
 
-        // 5. Return sanitized response (never return raw input)
+        // Return analysis result
         return NextResponse.json(
             {
                 success: true,
-                data: result,
+                data: {
+                    ...analysisResult,
+                    id: savedAnalysis?.id || inputHash,
+                    inputHash,
+                    inputType: type,
+                    analyzedAt: new Date().toISOString(),
+                    processingTimeMs: processingTime
+                },
                 timestamp: new Date().toISOString(),
             },
             { headers: createRateLimitHeaders(rateLimitResult) }
         );
     } catch (error) {
-        // Log error internally, but don't expose details
         console.error("Analysis error:", error);
-
         return NextResponse.json(
             {
                 error: {
@@ -144,7 +151,7 @@ export async function POST(request: NextRequest) {
     }
 }
 
-// Health check for the analyze endpoint
+// Health check
 export async function GET() {
     return NextResponse.json({
         status: "healthy",

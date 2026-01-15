@@ -108,13 +108,14 @@ function calculateStats(analyses: any[]) {
 
     return {
         totalThreats,
-        highRiskAlerts: highRiskCount,
+        highRiskCount: highRiskCount,
         activeMonitoring: "24/7",
         lastAnalysis,
         avgRiskScore,
         threatsToday: todayThreats,
         changePercent: calculateChange(analyses, oneWeekAgo),
-        trendData,
+        threatsOverTime: trendData,
+        threatsByType: Object.fromEntries(threatsByCategory.map(t => [t.name.toLowerCase().replace(/\s/g, '_'), t.value])),
         threatsByCategory,
         recentAlerts,
         severityDistribution: calculateSeverityDistribution(analyses)

@@ -166,12 +166,18 @@ function parseGeminiResponse(text: string): ThreatAnalysisOutput {
     try {
         const parsed = JSON.parse(cleanText);
 
+        // Convert confidence from decimal (0-1) to percentage (0-100) if needed
+        let confidenceValue = Number(parsed.confidence) || 0.5;
+        if (confidenceValue <= 1) {
+            confidenceValue = confidenceValue * 100; // Convert 0.95 to 95
+        }
+
         // Validate and sanitize the response
         return {
             threatType: validateThreatType(parsed.threatType),
             severity: validateSeverity(parsed.severity),
             riskScore: Math.max(0, Math.min(100, Number(parsed.riskScore) || 0)),
-            confidence: Math.max(0, Math.min(1, Number(parsed.confidence) || 0.5)),
+            confidence: Math.max(0, Math.min(100, Math.round(confidenceValue))),
             summary: String(parsed.summary || "Analysis complete"),
             explanation: Array.isArray(parsed.explanation) ? parsed.explanation : [],
             indicators: Array.isArray(parsed.indicators) ? parsed.indicators : [],
@@ -257,7 +263,7 @@ function getFallbackAnalysis(type: AnalysisInputType, content: string): ThreatAn
         threatType,
         severity,
         riskScore,
-        confidence: 0.6,
+        confidence: 60, // 60% confidence for fallback analysis
         summary: "Fallback analysis - AI service temporarily unavailable",
         explanation: [
             {

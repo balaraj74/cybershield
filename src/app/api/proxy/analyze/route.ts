@@ -1,11 +1,11 @@
 /**
  * API Route: Analyze Content
- * Performs threat analysis and saves to Supabase
+ * Uses Google Gemini 2.5 Flash for real-time AI threat analysis
  */
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
-import { getMockAnalysisResult } from "@/lib/mock-data";
+import { analyzeWithGemini } from "@/lib/gemini";
 import {
     checkRateLimit,
     createRateLimitHeaders,
@@ -89,8 +89,19 @@ export async function POST(request: NextRequest) {
             .digest("hex")
             .substring(0, 16);
 
-        // Perform analysis (using mock for now, can be replaced with AI)
-        const analysisResult = await getMockAnalysisResult(type, content);
+        // Use Gemini API for real AI analysis
+        const geminiApiKey = process.env.GEMINI_API_KEY;
+
+        if (!geminiApiKey) {
+            return NextResponse.json(
+                { error: { code: "CONFIG_ERROR", message: "AI service not configured" } },
+                { status: 503 }
+            );
+        }
+
+        console.log(`[Gemini Analysis] Starting analysis for ${type}...`);
+        const analysisResult = await analyzeWithGemini(type, content, geminiApiKey);
+        console.log(`[Gemini Analysis] Complete: ${analysisResult.threatType} (${analysisResult.riskScore}%)`);
 
         const processingTime = Date.now() - startTime;
 
@@ -108,9 +119,9 @@ export async function POST(request: NextRequest) {
                 explanation: JSON.stringify(analysisResult.explanation),
                 indicators: JSON.stringify(analysisResult.indicators),
                 recommendations: JSON.stringify(analysisResult.recommendations),
-                risk_contributions: JSON.stringify(analysisResult.riskContributions || []),
+                risk_contributions: JSON.stringify(analysisResult.riskContributions),
                 processing_time_ms: processingTime,
-                model_version: "1.0.0",
+                model_version: "gemini-2.5-flash",
                 analyzed_by: user?.id || null
             })
             .select()
@@ -126,12 +137,21 @@ export async function POST(request: NextRequest) {
             {
                 success: true,
                 data: {
-                    ...analysisResult,
                     id: savedAnalysis?.id || inputHash,
                     inputHash,
                     inputType: type,
+                    threatType: analysisResult.threatType,
+                    severity: analysisResult.severity,
+                    riskScore: analysisResult.riskScore,
+                    confidence: analysisResult.confidence,
+                    summary: analysisResult.summary,
+                    explanation: analysisResult.explanation,
+                    indicators: analysisResult.indicators,
+                    recommendations: analysisResult.recommendations,
+                    riskContributions: analysisResult.riskContributions,
                     analyzedAt: new Date().toISOString(),
-                    processingTimeMs: processingTime
+                    processingTimeMs: processingTime,
+                    modelVersion: "gemini-2.5-flash"
                 },
                 timestamp: new Date().toISOString(),
             },
@@ -143,7 +163,7 @@ export async function POST(request: NextRequest) {
             {
                 error: {
                     code: "INTERNAL_ERROR",
-                    message: "An unexpected error occurred",
+                    message: "An unexpected error occurred during analysis",
                 },
             },
             { status: 500 }
@@ -153,9 +173,12 @@ export async function POST(request: NextRequest) {
 
 // Health check
 export async function GET() {
+    const geminiConfigured = !!process.env.GEMINI_API_KEY;
+
     return NextResponse.json({
-        status: "healthy",
+        status: geminiConfigured ? "healthy" : "degraded",
         service: "analyze",
+        aiEngine: geminiConfigured ? "gemini-2.5-flash" : "not configured",
         timestamp: new Date().toISOString(),
     });
 }

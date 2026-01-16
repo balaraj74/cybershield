@@ -13,6 +13,10 @@ import {
     ChevronLeft,
     ChevronRight,
     Lock,
+    Bot,
+    Key,
+    Database,
+    FileText,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -28,12 +32,17 @@ interface NavItem {
     href: string;
     label: string;
     icon: React.ElementType;
+    badge?: string;
     permission?: string;
 }
 
 const navItems: NavItem[] = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { href: "/analyze", label: "Analyze", icon: Search },
+    { href: "/analyze", label: "Threat Analysis", icon: Search },
+    { href: "/chatbot", label: "AI Assistant", icon: Bot, badge: "NEW" },
+    { href: "/password-check", label: "Password Check", icon: Key },
+    { href: "/breach-check", label: "Breach Checker", icon: Database },
+    { href: "/privacy-analyzer", label: "Privacy Analyzer", icon: FileText, badge: "AI" },
     { href: "/history", label: "History", icon: History },
     { href: "/settings", label: "Settings", icon: Settings },
     { href: "/privacy", label: "Privacy", icon: Lock },
@@ -105,7 +114,14 @@ export function Sidebar({ userRole }: SidebarProps) {
                                         isActive ? "text-cyan-400" : "text-slate-500 group-hover:text-cyan-400"
                                     )}
                                 />
-                                {!collapsed && <span>{item.label}</span>}
+                                {!collapsed && (
+                                    <span className="flex-1">{item.label}</span>
+                                )}
+                                {!collapsed && item.badge && (
+                                    <span className="rounded bg-cyan-500/20 px-1.5 py-0.5 text-[10px] font-bold text-cyan-400">
+                                        {item.badge}
+                                    </span>
+                                )}
                             </Link>
                         );
 

@@ -17,6 +17,9 @@ import {
     Key,
     Database,
     FileText,
+    Link2,
+    MessageSquare,
+    Trophy,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -39,13 +42,15 @@ interface NavItem {
 const navItems: NavItem[] = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/analyze", label: "Threat Analysis", icon: Search },
-    { href: "/chatbot", label: "AI Assistant", icon: Bot, badge: "NEW" },
+    { href: "/chatbot", label: "AI Assistant", icon: Bot, badge: "AI" },
+    { href: "/url-check", label: "URL Checker", icon: Link2, badge: "NEW" },
+    { href: "/sms-check", label: "SMS Detector", icon: MessageSquare },
     { href: "/password-check", label: "Password Check", icon: Key },
     { href: "/breach-check", label: "Breach Checker", icon: Database },
-    { href: "/privacy-analyzer", label: "Privacy Analyzer", icon: FileText, badge: "AI" },
+    { href: "/privacy-analyzer", label: "Privacy Analyzer", icon: FileText },
+    { href: "/security-score", label: "Security Score", icon: Trophy, badge: "NEW" },
     { href: "/history", label: "History", icon: History },
     { href: "/settings", label: "Settings", icon: Settings },
-    { href: "/privacy", label: "Privacy", icon: Lock },
 ];
 
 interface SidebarProps {

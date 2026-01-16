@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
                 threat_type: analysisResult.threatType,
                 severity: analysisResult.severity,
                 risk_score: analysisResult.riskScore,
-                confidence: analysisResult.confidence,
+                confidence: analysisResult.confidence / 100, // Store as decimal (0-1) in DB
                 summary: analysisResult.summary,
                 explanation: JSON.stringify(analysisResult.explanation),
                 indicators: JSON.stringify(analysisResult.indicators),

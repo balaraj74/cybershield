@@ -93,12 +93,13 @@ function calculateStats(analyses: any[]) {
         .slice(0, 5)
         .map(a => ({
             id: a.id,
-            type: a.threat_type,
+            threatType: a.threat_type || "unknown",
             severity: a.severity,
             inputType: a.input_type,
-            timestamp: a.analyzed_at,
+            analyzedAt: a.analyzed_at,
             riskScore: a.risk_score,
-            summary: a.summary
+            analyzedBy: a.analyzed_by || "system",
+            inputHash: a.input_hash
         }));
 
     // Most recent analysis time

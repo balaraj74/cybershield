@@ -52,7 +52,7 @@ export default function SettingsPage() {
             {/* Page Header */}
             <div>
                 <h1 className="text-2xl font-bold text-white">Settings</h1>
-                <p className="mt-1 text-slate-400">
+                <p className="mt-1 text-neutral-400">
                     Configure your security preferences and display options
                 </p>
             </div>
@@ -68,8 +68,8 @@ export default function SettingsPage() {
                 <Card variant="elevated">
                     <CardHeader>
                         <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/20">
-                                <Bell className="h-5 w-5 text-cyan-400" />
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/20">
+                                <Bell className="h-5 w-5 text-orange-400" />
                             </div>
                             <div>
                                 <CardTitle className="text-base">Notifications</CardTitle>
@@ -83,7 +83,7 @@ export default function SettingsPage() {
                         <div className="flex items-center justify-between">
                             <div>
                                 <Label className="text-white">Email Alerts</Label>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Receive threat alerts via email
                                 </p>
                             </div>
@@ -100,7 +100,7 @@ export default function SettingsPage() {
                         <div className="flex items-center justify-between">
                             <div>
                                 <Label className="text-white">High Risk Only</Label>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Only notify for critical threats
                                 </p>
                             </div>
@@ -121,7 +121,7 @@ export default function SettingsPage() {
                 <Card variant="elevated">
                     <CardHeader>
                         <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/20">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/20">
                                 <Monitor className="h-5 w-5 text-blue-400" />
                             </div>
                             <div>
@@ -136,7 +136,7 @@ export default function SettingsPage() {
                         <div className="flex items-center justify-between">
                             <div>
                                 <Label className="text-white">Compact View</Label>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Use a more condensed layout
                                 </p>
                             </div>
@@ -153,7 +153,7 @@ export default function SettingsPage() {
                         <div className="flex items-center justify-between">
                             <div>
                                 <Label className="text-white">Auto Refresh</Label>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Automatically update dashboard
                                 </p>
                             </div>
@@ -228,14 +228,14 @@ export default function SettingsPage() {
                                     <SelectItem value="365">1 year</SelectItem>
                                 </SelectContent>
                             </Select>
-                            <p className="text-xs text-slate-500">
+                            <p className="text-xs text-neutral-500">
                                 Anonymized records older than this will be deleted
                             </p>
                         </div>
                         <div className="flex items-center justify-between">
                             <div>
                                 <Label className="text-white">Anonymize Data</Label>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Hash all identifiable content
                                 </p>
                             </div>
@@ -280,7 +280,7 @@ export default function SettingsPage() {
                                 defaultValue="analyst@cybershield.ai"
                                 disabled
                             />
-                            <p className="text-xs text-slate-500">
+                            <p className="text-xs text-neutral-500">
                                 Contact admin to change email
                             </p>
                         </div>

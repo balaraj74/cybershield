@@ -8,7 +8,7 @@ function Skeleton({ className, variant = "default", ...props }: SkeletonProps) {
     return (
         <div
             className={cn(
-                "animate-pulse bg-slate-800/50",
+                "animate-pulse bg-neutral-800/50",
                 variant === "default" && "rounded-lg",
                 variant === "circular" && "rounded-full",
                 variant === "text" && "rounded h-4",
@@ -22,7 +22,7 @@ function Skeleton({ className, variant = "default", ...props }: SkeletonProps) {
 // Pre-built skeleton components for common use cases
 function CardSkeleton() {
     return (
-        <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 space-y-4">
+        <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 space-y-4">
             <div className="flex items-center justify-between">
                 <Skeleton className="h-4 w-24" />
                 <Skeleton className="h-8 w-8" variant="circular" />
@@ -38,7 +38,7 @@ const CHART_BAR_HEIGHTS = [65, 80, 45, 90, 55, 75, 60];
 
 function ChartSkeleton() {
     return (
-        <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 space-y-4">
+        <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 space-y-4">
             <div className="flex items-center justify-between">
                 <Skeleton className="h-5 w-32" />
                 <Skeleton className="h-8 w-24" />
@@ -58,16 +58,16 @@ function ChartSkeleton() {
 
 function TableSkeleton({ rows = 5 }: { rows?: number }) {
     return (
-        <div className="rounded-xl border border-slate-800 bg-slate-900/50 overflow-hidden">
+        <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 overflow-hidden">
             {/* Header */}
-            <div className="grid grid-cols-5 gap-4 border-b border-slate-800 p-4">
+            <div className="grid grid-cols-5 gap-4 border-b border-neutral-800 p-4">
                 {[...Array(5)].map((_, i) => (
                     <Skeleton key={i} className="h-4" />
                 ))}
             </div>
             {/* Rows */}
             {[...Array(rows)].map((_, i) => (
-                <div key={i} className="grid grid-cols-5 gap-4 border-b border-slate-800/50 p-4 last:border-0">
+                <div key={i} className="grid grid-cols-5 gap-4 border-b border-neutral-800/50 p-4 last:border-0">
                     {[...Array(5)].map((_, j) => (
                         <Skeleton key={j} className="h-4" />
                     ))}
@@ -99,7 +99,7 @@ function DashboardSkeleton() {
 
 function AnalysisResultSkeleton() {
     return (
-        <div className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 space-y-6">
+        <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-6 space-y-6">
             <div className="flex items-center justify-between">
                 <div className="space-y-2">
                     <Skeleton className="h-6 w-48" />

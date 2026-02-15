@@ -24,16 +24,16 @@ interface ThreatCategoryChartProps {
     title?: string;
 }
 
-// Color mapping for threat types
+// Warm color mapping for threat types
 const threatColors: Record<ThreatType, string> = {
     phishing: "#ef4444",
-    malware: "#f97316",
-    spam: "#eab308",
-    social_engineering: "#a855f7",
-    credential_theft: "#ec4899",
-    url_threat: "#14b8a6",
-    data_exfiltration: "#3b82f6",
-    unknown: "#6b7280",
+    malware: "#e85d04",
+    spam: "#f59e0b",
+    social_engineering: "#d946ef",
+    credential_theft: "#f43f5e",
+    url_threat: "#f97316",
+    data_exfiltration: "#dc2f02",
+    unknown: "#525252",
 };
 
 // Human-readable labels
@@ -59,7 +59,7 @@ function CustomTooltip({
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="rounded-lg border border-slate-700 bg-slate-900 p-3 shadow-xl">
+            <div className="rounded-lg border border-neutral-700/50 bg-neutral-900 p-3 shadow-xl">
                 <div className="flex items-center gap-2">
                     <span
                         className="h-3 w-3 rounded-full"
@@ -69,7 +69,7 @@ function CustomTooltip({
                 </div>
                 <p className="mt-1 text-lg font-semibold text-white">
                     {data.value}{" "}
-                    <span className="text-sm font-normal text-slate-400">detected</span>
+                    <span className="text-sm font-normal text-neutral-400">detected</span>
                 </p>
             </div>
         );
@@ -86,7 +86,7 @@ export function ThreatCategoryChart({
         .map(([key, value]) => ({
             name: threatLabels[key as ThreatType] || key,
             value,
-            color: threatColors[key as ThreatType] || "#6b7280",
+            color: threatColors[key as ThreatType] || "#525252",
         }))
         .filter((item) => item.value > 0)
         .sort((a, b) => b.value - a.value);
@@ -106,21 +106,21 @@ export function ThreatCategoryChart({
                         >
                             <CartesianGrid
                                 strokeDasharray="3 3"
-                                stroke="#334155"
+                                stroke="#1e1e1e"
                                 horizontal={true}
                                 vertical={false}
                             />
-                            <XAxis type="number" stroke="#64748b" fontSize={12} tickLine={false} axisLine={false} />
+                            <XAxis type="number" stroke="#525252" fontSize={12} tickLine={false} axisLine={false} />
                             <YAxis
                                 type="category"
                                 dataKey="name"
-                                stroke="#64748b"
+                                stroke="#525252"
                                 fontSize={12}
                                 tickLine={false}
                                 axisLine={false}
                                 width={90}
                             />
-                            <Tooltip content={<CustomTooltip />} cursor={{ fill: "#1e293b" }} />
+                            <Tooltip content={<CustomTooltip />} cursor={{ fill: "#141414" }} />
                             <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={30}>
                                 {chartData.map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={entry.color} />

@@ -33,11 +33,11 @@ function CustomTooltip({
 }) {
     if (active && payload && payload.length) {
         return (
-            <div className="rounded-lg border border-slate-700 bg-slate-900 p-3 shadow-xl">
-                <p className="text-xs text-slate-400">{label}</p>
+            <div className="rounded-lg border border-neutral-700/50 bg-neutral-900 p-3 shadow-xl">
+                <p className="text-xs text-neutral-400">{label}</p>
                 <p className="text-lg font-semibold text-white">
                     {payload[0].value}{" "}
-                    <span className="text-sm font-normal text-slate-400">threats</span>
+                    <span className="text-sm font-normal text-neutral-400">threats</span>
                 </p>
             </div>
         );
@@ -63,24 +63,24 @@ export function ThreatTrendChart({
                         >
                             <defs>
                                 <linearGradient id="threatGradient" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#06b6d4" stopOpacity={0.3} />
-                                    <stop offset="100%" stopColor="#06b6d4" stopOpacity={0} />
+                                    <stop offset="0%" stopColor="#e85d04" stopOpacity={0.3} />
+                                    <stop offset="100%" stopColor="#e85d04" stopOpacity={0} />
                                 </linearGradient>
                             </defs>
                             <CartesianGrid
                                 strokeDasharray="3 3"
-                                stroke="#334155"
+                                stroke="#1e1e1e"
                                 vertical={false}
                             />
                             <XAxis
                                 dataKey="date"
-                                stroke="#64748b"
+                                stroke="#525252"
                                 fontSize={12}
                                 tickLine={false}
                                 axisLine={false}
                             />
                             <YAxis
-                                stroke="#64748b"
+                                stroke="#525252"
                                 fontSize={12}
                                 tickLine={false}
                                 axisLine={false}
@@ -90,13 +90,13 @@ export function ThreatTrendChart({
                             <Line
                                 type="monotone"
                                 dataKey="count"
-                                stroke="#06b6d4"
+                                stroke="#e85d04"
                                 strokeWidth={2}
                                 dot={false}
                                 activeDot={{
                                     r: 6,
-                                    fill: "#06b6d4",
-                                    stroke: "#0e7490",
+                                    fill: "#e85d04",
+                                    stroke: "#dc2f02",
                                     strokeWidth: 2,
                                 }}
                                 fill="url(#threatGradient)"

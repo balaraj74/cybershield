@@ -53,8 +53,8 @@ export default function PasswordAnalyzerPage() {
             case "fair": return "text-orange-500";
             case "good": return "text-yellow-500";
             case "strong": return "text-emerald-500";
-            case "excellent": return "text-cyan-400";
-            default: return "text-slate-400";
+            case "excellent": return "text-orange-400";
+            default: return "text-neutral-400";
         }
     };
 
@@ -64,8 +64,8 @@ export default function PasswordAnalyzerPage() {
             case "fair": return "bg-orange-500";
             case "good": return "bg-yellow-500";
             case "strong": return "bg-emerald-500";
-            case "excellent": return "bg-cyan-400";
-            default: return "bg-slate-600";
+            case "excellent": return "bg-orange-400";
+            default: return "bg-neutral-600";
         }
     };
 
@@ -74,10 +74,10 @@ export default function PasswordAnalyzerPage() {
             {/* Header */}
             <div>
                 <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                    <Key className="h-7 w-7 text-cyan-400" />
+                    <Key className="h-7 w-7 text-orange-400" />
                     Password Security Analyzer
                 </h1>
-                <p className="mt-1 text-slate-400">
+                <p className="mt-1 text-neutral-400">
                     AI-powered analysis with dark web breach detection
                 </p>
             </div>
@@ -87,7 +87,7 @@ export default function PasswordAnalyzerPage() {
                 <Card variant="elevated">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <Lock className="h-5 w-5 text-cyan-400" />
+                            <Lock className="h-5 w-5 text-orange-400" />
                             Test Your Password
                         </CardTitle>
                     </CardHeader>
@@ -101,12 +101,12 @@ export default function PasswordAnalyzerPage() {
                                     setAnalysis(null);
                                 }}
                                 placeholder="Enter a password to analyze..."
-                                className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                                className="w-full rounded-xl border border-neutral-700 bg-neutral-900 px-4 py-3 pr-12 text-white placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                             />
                             <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white"
                             >
                                 {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                             </button>
@@ -130,7 +130,7 @@ export default function PasswordAnalyzerPage() {
                             )}
                         </Button>
 
-                        <div className="rounded-lg bg-slate-800/50 p-3 text-xs text-slate-400">
+                        <div className="rounded-lg bg-neutral-800/50 p-3 text-xs text-neutral-400">
                             <p className="flex items-center gap-1">
                                 <Lock className="h-3 w-3" />
                                 Your password is analyzed locally and never stored. Only a secure hash is checked against breach databases.
@@ -151,7 +151,7 @@ export default function PasswordAnalyzerPage() {
                         {password ? (
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-sm text-slate-400">Password Length</span>
+                                    <span className="text-sm text-neutral-400">Password Length</span>
                                     <span className="font-mono text-lg text-white">{password.length} chars</span>
                                 </div>
                                 <div className="space-y-2">
@@ -208,7 +208,7 @@ export default function PasswordAnalyzerPage() {
                                 </div>
                             </div>
                         ) : (
-                            <div className="py-12 text-center text-slate-500">
+                            <div className="py-12 text-center text-neutral-500">
                                 <Key className="mx-auto h-12 w-12 opacity-50" />
                                 <p className="mt-2">Enter a password to see real-time analysis</p>
                             </div>
@@ -229,7 +229,7 @@ export default function PasswordAnalyzerPage() {
                             <div className={`mt-2 text-xl font-semibold uppercase ${getStrengthColor(analysis.strength)}`}>
                                 {analysis.strength}
                             </div>
-                            <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-800">
+                            <div className="mt-4 h-2 overflow-hidden rounded-full bg-neutral-800">
                                 <div
                                     className={`h-full transition-all duration-500 ${getStrengthBg(analysis.strength)}`}
                                     style={{ width: `${analysis.score}%` }}
@@ -241,8 +241,8 @@ export default function PasswordAnalyzerPage() {
                     {/* Crack Time */}
                     <Card variant="elevated">
                         <CardContent className="flex h-full flex-col items-center justify-center py-6 text-center">
-                            <Clock className="h-10 w-10 text-cyan-400" />
-                            <div className="mt-2 text-sm text-slate-400">Time to crack</div>
+                            <Clock className="h-10 w-10 text-orange-400" />
+                            <div className="mt-2 text-sm text-neutral-400">Time to crack</div>
                             <div className="mt-1 text-2xl font-bold text-white">{analysis.crackTime}</div>
                         </CardContent>
                     </Card>
@@ -251,7 +251,7 @@ export default function PasswordAnalyzerPage() {
                     <Card variant={analysis.breached ? "elevated" : "elevated"} className={analysis.breached ? "border-red-500/50" : "border-emerald-500/50"}>
                         <CardContent className="flex h-full flex-col items-center justify-center py-6 text-center">
                             <Database className={`h-10 w-10 ${analysis.breached ? "text-red-400" : "text-emerald-400"}`} />
-                            <div className="mt-2 text-sm text-slate-400">Dark Web Status</div>
+                            <div className="mt-2 text-sm text-neutral-400">Dark Web Status</div>
                             {analysis.breached ? (
                                 <>
                                     <div className="mt-1 text-xl font-bold text-red-400">BREACHED</div>
@@ -277,7 +277,7 @@ export default function PasswordAnalyzerPage() {
                     <CardContent>
                         <ul className="space-y-2">
                             {analysis.suggestions.map((suggestion, index) => (
-                                <li key={index} className="flex items-start gap-2 text-sm text-slate-300">
+                                <li key={index} className="flex items-start gap-2 text-sm text-neutral-300">
                                     <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-400" />
                                     {suggestion}
                                 </li>

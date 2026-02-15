@@ -76,7 +76,7 @@ export default function SecurityScorePage() {
 
         if (score >= 90) { grade = "A+"; level = "Excellent"; color = "text-emerald-400"; }
         else if (score >= 80) { grade = "A"; level = "Very Good"; color = "text-emerald-400"; }
-        else if (score >= 70) { grade = "B"; level = "Good"; color = "text-cyan-400"; }
+        else if (score >= 70) { grade = "B"; level = "Good"; color = "text-orange-400"; }
         else if (score >= 60) { grade = "C"; level = "Fair"; color = "text-yellow-400"; }
         else if (score >= 50) { grade = "D"; level = "Poor"; color = "text-orange-400"; }
         else { grade = "F"; level = "Critical"; color = "text-red-400"; }
@@ -115,19 +115,19 @@ export default function SecurityScorePage() {
             <div className="space-y-6">
                 <div>
                     <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                        <Trophy className="h-7 w-7 text-cyan-400" />
+                        <Trophy className="h-7 w-7 text-orange-400" />
                         Security Score Calculator
                     </h1>
-                    <p className="mt-1 text-slate-400">
+                    <p className="mt-1 text-neutral-400">
                         Assess your digital security posture with our interactive quiz
                     </p>
                 </div>
 
                 <Card variant="elevated" className="overflow-hidden">
-                    <div className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 p-8 text-center">
-                        <Shield className="mx-auto h-20 w-20 text-cyan-400" />
+                    <div className="bg-gradient-to-r from-orange-500/20 to-purple-500/20 p-8 text-center">
+                        <Shield className="mx-auto h-20 w-20 text-orange-400" />
                         <h2 className="mt-4 text-2xl font-bold text-white">How Secure Are You?</h2>
-                        <p className="mx-auto mt-2 max-w-md text-slate-400">
+                        <p className="mx-auto mt-2 max-w-md text-neutral-400">
                             Answer {QUESTIONS.length} quick questions to get your personalized security score and recommendations
                         </p>
                         <Button onClick={() => setStarted(true)} className="mt-6 px-8 py-6 text-lg">
@@ -140,11 +140,11 @@ export default function SecurityScorePage() {
                 <div className="grid gap-4 md:grid-cols-3">
                     <Card variant="elevated">
                         <CardContent className="py-6 text-center">
-                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/20">
-                                <Shield className="h-6 w-6 text-cyan-400" />
+                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/20">
+                                <Shield className="h-6 w-6 text-orange-400" />
                             </div>
                             <h3 className="mt-3 font-semibold text-white">Privacy Focused</h3>
-                            <p className="mt-1 text-sm text-slate-400">Your answers are never stored</p>
+                            <p className="mt-1 text-sm text-neutral-400">Your answers are never stored</p>
                         </CardContent>
                     </Card>
                     <Card variant="elevated">
@@ -153,7 +153,7 @@ export default function SecurityScorePage() {
                                 <Check className="h-6 w-6 text-emerald-400" />
                             </div>
                             <h3 className="mt-3 font-semibold text-white">Personalized Tips</h3>
-                            <p className="mt-1 text-sm text-slate-400">Get actionable improvements</p>
+                            <p className="mt-1 text-sm text-neutral-400">Get actionable improvements</p>
                         </CardContent>
                     </Card>
                     <Card variant="elevated">
@@ -162,7 +162,7 @@ export default function SecurityScorePage() {
                                 <Trophy className="h-6 w-6 text-purple-400" />
                             </div>
                             <h3 className="mt-3 font-semibold text-white">Track Progress</h3>
-                            <p className="mt-1 text-sm text-slate-400">Retake anytime to measure improvement</p>
+                            <p className="mt-1 text-sm text-neutral-400">Retake anytime to measure improvement</p>
                         </CardContent>
                     </Card>
                 </div>
@@ -176,14 +176,14 @@ export default function SecurityScorePage() {
             <div className="space-y-6">
                 <div>
                     <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                        <Trophy className="h-7 w-7 text-cyan-400" />
+                        <Trophy className="h-7 w-7 text-orange-400" />
                         Your Security Score
                     </h1>
                 </div>
 
                 {/* Score Card */}
                 <Card variant="elevated" className="overflow-hidden">
-                    <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-8 text-center">
+                    <div className="bg-gradient-to-r from-neutral-800 to-neutral-900 p-8 text-center">
                         <div className="relative mx-auto h-40 w-40">
                             <svg className="h-40 w-40 -rotate-90 transform" viewBox="0 0 100 100">
                                 <circle
@@ -191,7 +191,7 @@ export default function SecurityScorePage() {
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth="10"
-                                    className="text-slate-700"
+                                    className="text-neutral-700"
                                 />
                                 <circle
                                     cx="50" cy="50" r="45"
@@ -205,13 +205,13 @@ export default function SecurityScorePage() {
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                 <span className={`text-5xl font-bold ${result.color}`}>{result.score}</span>
-                                <span className="text-sm text-slate-400">/ 100</span>
+                                <span className="text-sm text-neutral-400">/ 100</span>
                             </div>
                         </div>
                         <div className={`mt-4 text-3xl font-bold ${result.color}`}>
                             Grade: {result.grade}
                         </div>
-                        <div className="mt-1 text-slate-400">{result.level} Security Posture</div>
+                        <div className="mt-1 text-neutral-400">{result.level} Security Posture</div>
                     </div>
                 </Card>
 
@@ -231,7 +231,7 @@ export default function SecurityScorePage() {
                                         <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-yellow-500/20 text-xs text-yellow-400">
                                             {index + 1}
                                         </div>
-                                        <span className="text-slate-300">{item}</span>
+                                        <span className="text-neutral-300">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -275,20 +275,20 @@ export default function SecurityScorePage() {
         <div className="space-y-6">
             <div>
                 <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                    <Trophy className="h-7 w-7 text-cyan-400" />
+                    <Trophy className="h-7 w-7 text-orange-400" />
                     Security Score Calculator
                 </h1>
             </div>
 
             {/* Progress */}
             <div className="space-y-2">
-                <div className="flex justify-between text-sm text-slate-400">
+                <div className="flex justify-between text-sm text-neutral-400">
                     <span>Question {currentQuestion + 1} of {QUESTIONS.length}</span>
                     <span>{question.category}</span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-slate-800">
+                <div className="h-2 overflow-hidden rounded-full bg-neutral-800">
                     <div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-300"
+                        className="h-full bg-gradient-to-r from-orange-500 to-purple-500 transition-all duration-300"
                         style={{ width: `${progress}%` }}
                     />
                 </div>
@@ -297,8 +297,8 @@ export default function SecurityScorePage() {
             {/* Question Card */}
             <Card variant="elevated">
                 <CardContent className="py-12 text-center">
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-500/20">
-                        <Icon className="h-8 w-8 text-cyan-400" />
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-orange-500/20">
+                        <Icon className="h-8 w-8 text-orange-400" />
                     </div>
                     <h2 className="mt-6 text-xl font-semibold text-white">
                         {question.question}

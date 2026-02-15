@@ -69,18 +69,18 @@ export default function SMSDetectorPage() {
             case "medium": return "text-yellow-400";
             case "high": return "text-orange-400";
             case "critical": return "text-red-400";
-            default: return "text-slate-400";
+            default: return "text-neutral-400";
         }
     };
 
     const getRiskBg = (level: string) => {
         switch (level) {
             case "safe": return "bg-emerald-500/20";
-            case "low": return "bg-blue-500/20";
+            case "low": return "bg-orange-500/20";
             case "medium": return "bg-yellow-500/20";
             case "high": return "bg-orange-500/20";
             case "critical": return "bg-red-500/20";
-            default: return "bg-slate-500/20";
+            default: return "bg-neutral-500/20";
         }
     };
 
@@ -89,10 +89,10 @@ export default function SMSDetectorPage() {
             {/* Header */}
             <div>
                 <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                    <MessageSquare className="h-7 w-7 text-cyan-400" />
+                    <MessageSquare className="h-7 w-7 text-orange-400" />
                     SMS Scam Detector
                 </h1>
-                <p className="mt-1 text-slate-400">
+                <p className="mt-1 text-neutral-400">
                     AI-powered detection for SMS phishing, scam, and fraud messages
                 </p>
             </div>
@@ -102,7 +102,7 @@ export default function SMSDetectorPage() {
                 <Card variant="elevated">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <Phone className="h-5 w-5 text-cyan-400" />
+                            <Phone className="h-5 w-5 text-orange-400" />
                             Paste SMS Message
                         </CardTitle>
                     </CardHeader>
@@ -116,7 +116,7 @@ export default function SMSDetectorPage() {
                             }}
                             placeholder="Paste the suspicious SMS message here..."
                             rows={6}
-                            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            className="w-full rounded-xl border border-neutral-700 bg-neutral-900 px-4 py-3 text-white placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                         />
 
                         <div className="flex gap-2">
@@ -167,7 +167,7 @@ export default function SMSDetectorPage() {
                                     setMessage(sample);
                                     setAnalysis(null);
                                 }}
-                                className="w-full rounded-lg bg-slate-800 p-3 text-left text-sm text-slate-300 transition-colors hover:bg-slate-700"
+                                className="w-full rounded-lg bg-neutral-800 p-3 text-left text-sm text-neutral-300 transition-colors hover:bg-neutral-700"
                             >
                                 {sample.length > 80 ? sample.substring(0, 80) + "..." : sample}
                             </button>
@@ -194,7 +194,7 @@ export default function SMSDetectorPage() {
                                         <h2 className="mt-4 text-2xl font-bold text-red-400">
                                             ⚠️ Scam Detected!
                                         </h2>
-                                        <p className="mt-2 text-slate-400">
+                                        <p className="mt-2 text-neutral-400">
                                             This message appears to be a <span className="font-bold text-white">{analysis.scamType}</span>
                                         </p>
                                     </>
@@ -206,7 +206,7 @@ export default function SMSDetectorPage() {
                                         <h2 className="mt-4 text-2xl font-bold text-emerald-400">
                                             Message Appears Safe
                                         </h2>
-                                        <p className="mt-2 text-slate-400">
+                                        <p className="mt-2 text-neutral-400">
                                             No scam patterns detected
                                         </p>
                                     </>
@@ -216,7 +216,7 @@ export default function SMSDetectorPage() {
                                     <span className={`rounded-full px-4 py-1 text-sm font-bold uppercase ${getRiskColor(analysis.riskLevel)} ${getRiskBg(analysis.riskLevel)}`}>
                                         {analysis.riskLevel}
                                     </span>
-                                    <span className="text-sm text-slate-500">
+                                    <span className="text-sm text-neutral-500">
                                         {analysis.confidence}% confidence
                                     </span>
                                 </div>
@@ -228,12 +228,12 @@ export default function SMSDetectorPage() {
                     <Card variant="elevated">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <Sparkles className="h-5 w-5 text-cyan-400" />
+                                <Sparkles className="h-5 w-5 text-orange-400" />
                                 AI Analysis
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-slate-300 leading-relaxed">{analysis.aiSummary}</p>
+                            <p className="text-neutral-300 leading-relaxed">{analysis.aiSummary}</p>
                         </CardContent>
                     </Card>
 
@@ -268,8 +268,8 @@ export default function SMSDetectorPage() {
                             <CardContent>
                                 <div className="space-y-2">
                                     {analysis.extractedLinks.map((link, index) => (
-                                        <div key={index} className="flex items-center justify-between rounded-lg bg-slate-800 p-3">
-                                            <span className="font-mono text-sm text-slate-300">{link.url}</span>
+                                        <div key={index} className="flex items-center justify-between rounded-lg bg-neutral-800 p-3">
+                                            <span className="font-mono text-sm text-neutral-300">{link.url}</span>
                                             <span className={link.safe ? "text-emerald-400" : "text-red-400"}>
                                                 {link.safe ? "Likely safe" : "Suspicious"}
                                             </span>
@@ -284,15 +284,15 @@ export default function SMSDetectorPage() {
                     <Card variant="elevated">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <Shield className="h-5 w-5 text-cyan-400" />
+                                <Shield className="h-5 w-5 text-orange-400" />
                                 What You Should Do
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
                             <ul className="space-y-2">
                                 {analysis.advice.map((item, index) => (
-                                    <li key={index} className="flex items-start gap-2 text-sm text-slate-300">
-                                        <Check className="h-4 w-4 shrink-0 text-cyan-400" />
+                                    <li key={index} className="flex items-start gap-2 text-sm text-neutral-300">
+                                        <Check className="h-4 w-4 shrink-0 text-orange-400" />
                                         {item}
                                     </li>
                                 ))}

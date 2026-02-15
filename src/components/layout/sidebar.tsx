@@ -20,6 +20,16 @@ import {
     Link2,
     MessageSquare,
     Trophy,
+    Brain,
+    Bug,
+    Network,
+    Zap,
+    EyeOff,
+    Gauge,
+    Fish,
+    UserX,
+    ClipboardCheck,
+    HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -37,18 +47,32 @@ interface NavItem {
     icon: React.ElementType;
     badge?: string;
     permission?: string;
+    separator?: boolean;
 }
 
 const navItems: NavItem[] = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/endpoints", label: "Endpoint Protection", icon: Shield, badge: "LIVE" },
     { href: "/analyze", label: "Threat Analysis", icon: Search },
     { href: "/chatbot", label: "AI Assistant", icon: Bot, badge: "AI" },
-    { href: "/url-check", label: "URL Checker", icon: Link2, badge: "NEW" },
+    { href: "/url-check", label: "URL Checker", icon: Link2 },
     { href: "/sms-check", label: "SMS Detector", icon: MessageSquare },
     { href: "/password-check", label: "Password Check", icon: Key },
     { href: "/breach-check", label: "Breach Checker", icon: Database },
     { href: "/privacy-analyzer", label: "Privacy Analyzer", icon: FileText },
-    { href: "/security-score", label: "Security Score", icon: Trophy, badge: "NEW" },
+    { href: "/security-score", label: "Security Score", icon: Trophy },
+    // AI Security Modules
+    { href: "", label: "AI MODULES", icon: Brain, separator: true },
+    { href: "/modules", label: "Modules Overview", icon: Brain, badge: "9" },
+    { href: "/modules/network-ids", label: "Network IDS", icon: Network, badge: "AI" },
+    { href: "/modules/behavior-malware", label: "Malware Detection", icon: Bug, badge: "AI" },
+    { href: "/modules/autonomous-response", label: "Auto Response", icon: Zap },
+    { href: "/modules/privacy-ai", label: "Privacy AI", icon: EyeOff },
+    { href: "/modules/risk-score", label: "Risk Score", icon: Gauge },
+    { href: "/modules/phishing", label: "Phishing Detection", icon: Fish, badge: "AI" },
+    { href: "/modules/insider-threat", label: "Insider Threat", icon: UserX },
+    { href: "/modules/compliance", label: "Compliance", icon: ClipboardCheck },
+    // Bottom
     { href: "/history", label: "History", icon: History },
     { href: "/settings", label: "Settings", icon: Settings },
 ];
@@ -65,24 +89,22 @@ export function Sidebar({ userRole }: SidebarProps) {
         <TooltipProvider delayDuration={0}>
             <aside
                 className={cn(
-                    "fixed left-0 top-0 z-40 flex h-screen flex-col border-r border-slate-800 bg-slate-950/95 backdrop-blur-xl transition-all duration-300",
-                    collapsed ? "w-[72px]" : "w-64"
+                    "fixed left-0 top-0 z-40 flex h-screen flex-col border-r border-neutral-800/40 bg-[#0c0c0c] transition-all duration-300",
+                    collapsed ? "w-[72px]" : "w-56"
                 )}
             >
                 {/* Logo */}
-                <div className="flex h-16 items-center justify-between border-b border-slate-800 px-4">
-                    <Link href="/dashboard" className="flex items-center gap-3">
+                <div className="flex h-14 items-center justify-between border-b border-neutral-800/40 px-4">
+                    <Link href="/dashboard" className="flex items-center gap-2.5">
                         <div className="relative">
-                            <Shield className="h-8 w-8 text-cyan-400" />
-                            <ShieldCheck className="absolute -bottom-0.5 -right-0.5 h-4 w-4 text-emerald-400" />
+                            <Shield className="h-7 w-7 text-orange-500" />
+                            <ShieldCheck className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 text-green-500" />
                         </div>
                         {!collapsed && (
                             <div className="flex flex-col">
-                                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-lg font-bold text-transparent">
-                                    CyberShield
-                                </span>
-                                <span className="text-[10px] uppercase tracking-wider text-slate-500">
-                                    AI Security
+                                <span className="text-base font-bold tracking-tight">
+                                    <span className="text-orange-500">CY</span>
+                                    <span className="text-neutral-200"> · SHIELD</span>
                                 </span>
                             </div>
                         )}
@@ -90,16 +112,32 @@ export function Sidebar({ userRole }: SidebarProps) {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className={cn("h-8 w-8", collapsed && "hidden")}
+                        className={cn("h-7 w-7", collapsed && "hidden")}
                         onClick={() => setCollapsed(true)}
                     >
-                        <ChevronLeft className="h-4 w-4" />
+                        <ChevronLeft className="h-4 w-4 text-neutral-500" />
                     </Button>
                 </div>
 
                 {/* Navigation */}
-                <nav className="flex-1 space-y-1 overflow-y-auto p-3">
-                    {navItems.map((item) => {
+                <nav className="flex-1 space-y-0.5 overflow-y-auto px-2 py-3 scrollbar-hide">
+                    {navItems.map((item, idx) => {
+                        // Render separator
+                        if (item.separator) {
+                            if (collapsed) {
+                                return (
+                                    <div key={`sep-${idx}`} className="my-3 border-t border-neutral-800/30" />
+                                );
+                            }
+                            return (
+                                <div key={`sep-${idx}`} className="mt-5 mb-2 pt-3 border-t border-neutral-800/30">
+                                    <span className="px-3 text-[10px] font-bold uppercase tracking-widest text-neutral-600">
+                                        {item.label}
+                                    </span>
+                                </div>
+                            );
+                        }
+
                         const isActive = pathname === item.href;
                         const Icon = item.icon;
 
@@ -107,23 +145,28 @@ export function Sidebar({ userRole }: SidebarProps) {
                             <Link
                                 href={item.href}
                                 className={cn(
-                                    "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                                    "group flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all duration-150",
                                     isActive
-                                        ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white border border-cyan-500/30 shadow-lg shadow-cyan-500/10"
-                                        : "text-slate-400 hover:bg-slate-800/50 hover:text-white"
+                                        ? "bg-orange-500/10 text-orange-400 border-l-2 border-orange-500"
+                                        : "text-neutral-500 hover:bg-neutral-800/40 hover:text-neutral-300 border-l-2 border-transparent"
                                 )}
                             >
                                 <Icon
                                     className={cn(
-                                        "h-5 w-5 shrink-0 transition-colors",
-                                        isActive ? "text-cyan-400" : "text-slate-500 group-hover:text-cyan-400"
+                                        "h-[18px] w-[18px] shrink-0 transition-colors",
+                                        isActive ? "text-orange-400" : "text-neutral-600 group-hover:text-neutral-400"
                                     )}
                                 />
                                 {!collapsed && (
-                                    <span className="flex-1">{item.label}</span>
+                                    <span className="flex-1 truncate">{item.label}</span>
                                 )}
                                 {!collapsed && item.badge && (
-                                    <span className="rounded bg-cyan-500/20 px-1.5 py-0.5 text-[10px] font-bold text-cyan-400">
+                                    <span className={cn(
+                                        "rounded px-1.5 py-0.5 text-[9px] font-bold",
+                                        isActive
+                                            ? "bg-orange-500/20 text-orange-400"
+                                            : "bg-neutral-800 text-neutral-500"
+                                    )}>
                                         {item.badge}
                                     </span>
                                 )}
@@ -145,8 +188,8 @@ export function Sidebar({ userRole }: SidebarProps) {
                     })}
                 </nav>
 
-                {/* Role Badge & Expand Button */}
-                <div className="border-t border-slate-800 p-3">
+                {/* Footer */}
+                <div className="border-t border-neutral-800/40 p-3">
                     {collapsed ? (
                         <Button
                             variant="ghost"
@@ -157,21 +200,33 @@ export function Sidebar({ userRole }: SidebarProps) {
                             <ChevronRight className="h-4 w-4" />
                         </Button>
                     ) : (
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 rounded-lg bg-slate-800/50 px-3 py-2">
-                                <Shield className="h-4 w-4 text-cyan-400" />
-                                <span className="text-xs font-medium text-slate-400 capitalize">
-                                    {userRole || "analyst"}
-                                </span>
+                        <div className="space-y-2">
+                            <Link href="/settings" className="flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] text-neutral-500 hover:bg-neutral-800/40 hover:text-neutral-300 transition-colors">
+                                <HelpCircle className="h-4 w-4" />
+                                <span>Help & Docs</span>
+                            </Link>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2 px-3 py-1.5">
+                                    <div className="h-7 w-7 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
+                                        <span className="text-[10px] font-bold text-white">
+                                            {(userRole || "U")[0].toUpperCase()}
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs font-medium text-neutral-300 capitalize">
+                                            {userRole || "analyst"}
+                                        </span>
+                                    </div>
+                                </div>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                                            <LogOut className="h-4 w-4 text-neutral-600" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>Sign Out</TooltipContent>
+                                </Tooltip>
                             </div>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button variant="ghost" size="icon" className="h-9 w-9">
-                                        <LogOut className="h-4 w-4 text-slate-500" />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>Sign Out</TooltipContent>
-                            </Tooltip>
                         </div>
                     )}
                 </div>

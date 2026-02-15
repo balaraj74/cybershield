@@ -45,7 +45,7 @@ export default function DashboardPage() {
                     <CardContent className="py-12">
                         <AlertTriangle className="mx-auto h-12 w-12 text-yellow-400" />
                         <h3 className="mt-4 text-lg font-semibold">Unable to Load Dashboard</h3>
-                        <p className="mt-2 text-sm text-slate-400">
+                        <p className="mt-2 text-sm text-neutral-400">
                             There was a problem fetching the dashboard data. Please try again.
                         </p>
                         <Button className="mt-6" onClick={() => window.location.reload()}>
@@ -69,7 +69,7 @@ export default function DashboardPage() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                     <h1 className="text-2xl font-bold text-white">Security Dashboard</h1>
-                    <p className="mt-1 text-slate-400">
+                    <p className="mt-1 text-neutral-500">
                         Real-time threat monitoring and analysis overview
                     </p>
                 </div>
@@ -138,7 +138,7 @@ export default function DashboardPage() {
                 <CardContent>
                     <div className="space-y-3">
                         {stats.recentAlerts.length === 0 ? (
-                            <div className="py-8 text-center text-slate-500">
+                            <div className="py-8 text-center text-neutral-500">
                                 No recent alerts
                             </div>
                         ) : (
@@ -147,11 +147,11 @@ export default function DashboardPage() {
                                 return (
                                     <div
                                         key={alert.id}
-                                        className="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900/50 p-4 transition-colors hover:border-slate-700"
+                                        className="flex items-center justify-between rounded-lg border border-neutral-800/40 bg-neutral-900/50 p-4 transition-colors hover:border-neutral-700/50"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
-                                                <Icon className="h-5 w-5 text-slate-400" />
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-800">
+                                                <Icon className="h-5 w-5 text-neutral-400" />
                                             </div>
                                             <div>
                                                 <div className="flex items-center gap-2">
@@ -160,7 +160,7 @@ export default function DashboardPage() {
                                                     </span>
                                                     <SeverityBadge severity={alert.severity} />
                                                 </div>
-                                                <p className="mt-0.5 text-sm text-slate-500">
+                                                <p className="mt-0.5 text-sm text-neutral-500">
                                                     {alert.inputType.charAt(0).toUpperCase() +
                                                         alert.inputType.slice(1)}{" "}
                                                     analysis • {formatRelativeTime(alert.analyzedAt)}
@@ -171,7 +171,7 @@ export default function DashboardPage() {
                                             <div className="text-lg font-semibold text-white">
                                                 {alert.riskScore}%
                                             </div>
-                                            <div className="text-xs text-slate-500">Risk Score</div>
+                                            <div className="text-xs text-neutral-500">Risk Score</div>
                                         </div>
                                     </div>
                                 );
@@ -186,17 +186,17 @@ export default function DashboardPage() {
                 <Link href="/analyze?type=email" className="group">
                     <Card
                         variant="elevated"
-                        className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/5"
+                        className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/20 hover:shadow-lg hover:shadow-orange-500/5"
                     >
                         <CardContent className="flex items-center gap-4 p-6">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20">
-                                <Mail className="h-6 w-6 text-cyan-400" />
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10">
+                                <Mail className="h-6 w-6 text-orange-400" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-white group-hover:text-cyan-400">
+                                <h3 className="font-semibold text-white group-hover:text-orange-400">
                                     Analyze Email
                                 </h3>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Check for phishing attempts
                                 </p>
                             </div>
@@ -207,17 +207,17 @@ export default function DashboardPage() {
                 <Link href="/analyze?type=url" className="group">
                     <Card
                         variant="elevated"
-                        className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/30 hover:shadow-lg hover:shadow-orange-500/5"
+                        className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-red-500/20 hover:shadow-lg hover:shadow-red-500/5"
                     >
                         <CardContent className="flex items-center gap-4 p-6">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/20">
-                                <LinkIcon className="h-6 w-6 text-orange-400" />
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/10">
+                                <LinkIcon className="h-6 w-6 text-red-400" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-white group-hover:text-orange-400">
+                                <h3 className="font-semibold text-white group-hover:text-red-400">
                                     Scan URL
                                 </h3>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Detect malicious links
                                 </p>
                             </div>
@@ -228,17 +228,17 @@ export default function DashboardPage() {
                 <Link href="/analyze?type=message" className="group">
                     <Card
                         variant="elevated"
-                        className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/5"
+                        className="h-full transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/20 hover:shadow-lg hover:shadow-amber-500/5"
                     >
                         <CardContent className="flex items-center gap-4 p-6">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/20">
-                                <MessageSquare className="h-6 w-6 text-purple-400" />
+                            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/10">
+                                <MessageSquare className="h-6 w-6 text-amber-400" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-white group-hover:text-purple-400">
+                                <h3 className="font-semibold text-white group-hover:text-amber-400">
                                     Check Message
                                 </h3>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-neutral-500">
                                     Analyze suspicious text
                                 </p>
                             </div>

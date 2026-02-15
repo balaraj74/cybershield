@@ -52,22 +52,22 @@ export default function PrivacyPage() {
         <MainLayout>
             <div className="space-y-8">
                 {/* Hero Section */}
-                <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 md:p-12">
+                <div className="relative overflow-hidden rounded-2xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 p-8 md:p-12">
                     <div className="relative z-10">
                         <div className="flex items-center gap-4">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600">
+                            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600">
                                 <Shield className="h-8 w-8 text-white" />
                             </div>
                             <div>
                                 <h1 className="text-3xl font-bold text-white">
                                     Privacy-First Security
                                 </h1>
-                                <p className="mt-1 text-lg text-slate-400">
+                                <p className="mt-1 text-lg text-neutral-400">
                                     Your privacy is our priority
                                 </p>
                             </div>
                         </div>
-                        <p className="mt-6 max-w-2xl text-slate-300">
+                        <p className="mt-6 max-w-2xl text-neutral-300">
                             CyberShield AI is built with privacy at its core. We believe effective
                             security shouldn't compromise your data rights. Here's exactly how
                             we handle your information.
@@ -75,8 +75,8 @@ export default function PrivacyPage() {
                     </div>
 
                     {/* Background decoration */}
-                    <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
-                    <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+                    <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl" />
+                    <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-orange-500/10 blur-3xl" />
                 </div>
 
                 {/* Core Principles */}
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
                                 <Trash2 className="h-6 w-6 text-emerald-400" />
                             </div>
                             <h3 className="mt-4 font-semibold text-white">No Raw Storage</h3>
-                            <p className="mt-2 text-sm text-slate-400">
+                            <p className="mt-2 text-sm text-neutral-400">
                                 Original content is processed in memory and immediately
                                 discarded after analysis
                             </p>
@@ -96,11 +96,11 @@ export default function PrivacyPage() {
 
                     <Card variant="elevated" className="text-center">
                         <CardContent className="pt-6">
-                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20">
-                                <Lock className="h-6 w-6 text-cyan-400" />
+                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/20">
+                                <Lock className="h-6 w-6 text-orange-400" />
                             </div>
                             <h3 className="mt-4 font-semibold text-white">Hash-Only References</h3>
-                            <p className="mt-2 text-sm text-slate-400">
+                            <p className="mt-2 text-sm text-neutral-400">
                                 We use one-way cryptographic hashes for record-keeping
                                 that cannot be reversed
                             </p>
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
                                 <Eye className="h-6 w-6 text-purple-400" />
                             </div>
                             <h3 className="mt-4 font-semibold text-white">Transparent Handling</h3>
-                            <p className="mt-2 text-sm text-slate-400">
+                            <p className="mt-2 text-sm text-neutral-400">
                                 Full visibility into what data exists and complete
                                 control over its retention
                             </p>
@@ -136,16 +136,16 @@ export default function PrivacyPage() {
                                 return (
                                     <div
                                         key={index}
-                                        className="flex items-start gap-4 rounded-lg border border-slate-800 bg-slate-900/50 p-4"
+                                        className="flex items-start gap-4 rounded-lg border border-neutral-800 bg-neutral-900/50 p-4"
                                     >
                                         <div
                                             className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${item.retained
-                                                    ? "bg-cyan-500/20"
+                                                    ? "bg-orange-500/20"
                                                     : "bg-emerald-500/20"
                                                 }`}
                                         >
                                             <Icon
-                                                className={`h-5 w-5 ${item.retained ? "text-cyan-400" : "text-emerald-400"
+                                                className={`h-5 w-5 ${item.retained ? "text-orange-400" : "text-emerald-400"
                                                     }`}
                                             />
                                         </div>
@@ -154,17 +154,17 @@ export default function PrivacyPage() {
                                                 <h4 className="font-medium text-white">{item.type}</h4>
                                                 <span
                                                     className={`rounded-full px-2 py-0.5 text-xs font-medium ${item.retained
-                                                            ? "bg-cyan-500/20 text-cyan-400"
+                                                            ? "bg-orange-500/20 text-orange-400"
                                                             : "bg-emerald-500/20 text-emerald-400"
                                                         }`}
                                                 >
                                                     {item.retained ? "Retained" : "Not Stored"}
                                                 </span>
                                             </div>
-                                            <p className="mt-1 text-sm text-slate-400">
+                                            <p className="mt-1 text-sm text-neutral-400">
                                                 {item.description}
                                             </p>
-                                            <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                                            <div className="mt-2 flex items-center gap-2 text-xs text-neutral-500">
                                                 <Clock className="h-3 w-3" />
                                                 <span>{item.duration}</span>
                                             </div>
@@ -189,37 +189,37 @@ export default function PrivacyPage() {
                             <div className="space-y-3">
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">TLS 1.3 encryption in transit</span>
+                                    <span className="text-neutral-300">TLS 1.3 encryption in transit</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">AES-256 encryption at rest</span>
+                                    <span className="text-neutral-300">AES-256 encryption at rest</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">Secure API gateway with rate limiting</span>
+                                    <span className="text-neutral-300">Secure API gateway with rate limiting</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">Role-based access control (RBAC)</span>
+                                    <span className="text-neutral-300">Role-based access control (RBAC)</span>
                                 </div>
                             </div>
                             <div className="space-y-3">
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">JWT token-based authentication</span>
+                                    <span className="text-neutral-300">JWT token-based authentication</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">Content Security Policy (CSP) headers</span>
+                                    <span className="text-neutral-300">Content Security Policy (CSP) headers</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">Input sanitization and validation</span>
+                                    <span className="text-neutral-300">Input sanitization and validation</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <CheckCircle className="h-5 w-5 text-emerald-400" />
-                                    <span className="text-slate-300">Audit logging (without PII)</span>
+                                    <span className="text-neutral-300">Audit logging (without PII)</span>
                                 </div>
                             </div>
                         </div>
@@ -236,30 +236,30 @@ export default function PrivacyPage() {
                     </CardHeader>
                     <CardContent>
                         <div className="grid gap-4 md:grid-cols-2">
-                            <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+                            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
                                 <h4 className="font-medium text-white">Right to Access</h4>
-                                <p className="mt-2 text-sm text-slate-400">
+                                <p className="mt-2 text-sm text-neutral-400">
                                     View all anonymized records associated with your account
                                     in the History section.
                                 </p>
                             </div>
-                            <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+                            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
                                 <h4 className="font-medium text-white">Right to Deletion</h4>
-                                <p className="mt-2 text-sm text-slate-400">
+                                <p className="mt-2 text-sm text-neutral-400">
                                     Request complete deletion of your account and all
                                     associated records at any time.
                                 </p>
                             </div>
-                            <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+                            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
                                 <h4 className="font-medium text-white">Right to Export</h4>
-                                <p className="mt-2 text-sm text-slate-400">
+                                <p className="mt-2 text-sm text-neutral-400">
                                     Download your analysis history and settings in
                                     a portable format.
                                 </p>
                             </div>
-                            <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+                            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
                                 <h4 className="font-medium text-white">Right to Configure</h4>
-                                <p className="mt-2 text-sm text-slate-400">
+                                <p className="mt-2 text-sm text-neutral-400">
                                     Adjust retention periods and anonymization settings
                                     in your preferences.
                                 </p>
@@ -269,7 +269,7 @@ export default function PrivacyPage() {
                 </Card>
 
                 {/* Last Updated */}
-                <div className="text-center text-sm text-slate-500">
+                <div className="text-center text-sm text-neutral-500">
                     <p>Last updated: January 2026 • Version 1.0</p>
                     <p className="mt-1">
                         Questions about privacy? Contact security@cybershield.ai

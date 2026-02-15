@@ -4,25 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
     {
         variants: {
             variant: {
                 default:
-                    "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:from-cyan-400 hover:to-blue-500",
+                    "bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/20 hover:shadow-orange-500/35 hover:from-orange-500 hover:to-orange-400",
                 destructive:
-                    "bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-lg shadow-red-500/25 hover:shadow-red-500/40 hover:from-red-400 hover:to-rose-500",
+                    "bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-lg shadow-red-500/20 hover:shadow-red-500/35 hover:from-red-500 hover:to-rose-500",
                 outline:
-                    "border border-slate-700 bg-transparent text-slate-300 hover:bg-slate-800 hover:text-white hover:border-slate-600",
+                    "border border-neutral-700/60 bg-transparent text-neutral-300 hover:bg-neutral-800/60 hover:text-white hover:border-neutral-600",
                 secondary:
-                    "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white",
+                    "bg-neutral-800 text-neutral-300 hover:bg-neutral-700 hover:text-white",
                 ghost:
-                    "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200",
-                link: "text-cyan-400 underline-offset-4 hover:underline hover:text-cyan-300",
+                    "text-neutral-400 hover:bg-neutral-800/50 hover:text-neutral-200",
+                link: "text-orange-400 underline-offset-4 hover:underline hover:text-orange-300",
                 success:
-                    "bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40",
+                    "bg-gradient-to-r from-emerald-600 to-green-600 text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35",
                 warning:
-                    "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40",
+                    "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35",
             },
             size: {
                 default: "h-10 px-4 py-2",

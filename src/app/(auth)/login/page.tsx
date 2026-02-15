@@ -65,32 +65,32 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-neutral-950 p-4">
             {/* Background effects */}
             <div className="fixed inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20" />
-            <div className="fixed -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-            <div className="fixed -right-40 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+            <div className="fixed -left-40 top-0 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+            <div className="fixed -right-40 bottom-0 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
 
             <div className="relative w-full max-w-md">
                 {/* Logo */}
                 <div className="mb-8 text-center">
                     <Link href="/" className="inline-flex items-center gap-3">
                         <div className="relative">
-                            <Shield className="h-12 w-12 text-cyan-400" />
+                            <Shield className="h-12 w-12 text-orange-400" />
                             <ShieldCheck className="absolute -bottom-1 -right-1 h-5 w-5 text-emerald-400" />
                         </div>
                         <div className="flex flex-col items-start">
-                            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-2xl font-bold text-transparent">
+                            <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-2xl font-bold text-transparent">
                                 CyberShield
                             </span>
-                            <span className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                            <span className="text-xs uppercase tracking-[0.2em] text-neutral-500">
                                 AI Security Platform
                             </span>
                         </div>
                     </Link>
                 </div>
 
-                <Card variant="glass" className="border-slate-700/50">
+                <Card variant="glass" className="border-neutral-700/50">
                     <CardHeader className="text-center">
                         <CardTitle className="text-xl">Welcome Back</CardTitle>
                         <CardDescription>
@@ -122,10 +122,10 @@ export default function LoginPage() {
 
                         <div className="relative mb-6">
                             <div className="absolute inset-0 flex items-center">
-                                <span className="w-full border-t border-slate-700" />
+                                <span className="w-full border-t border-neutral-700" />
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-slate-900 px-2 text-slate-500">
+                                <span className="bg-neutral-900 px-2 text-neutral-500">
                                     Or continue with email
                                 </span>
                             </div>
@@ -167,7 +167,7 @@ export default function LoginPage() {
                                     />
                                     <button
                                         type="button"
-                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300"
                                         onClick={() => setShowPassword(!showPassword)}
                                     >
                                         {showPassword ? (
@@ -190,18 +190,18 @@ export default function LoginPage() {
                         </form>
 
                         {/* Sign Up Link */}
-                        <div className="mt-6 text-center text-sm text-slate-400">
+                        <div className="mt-6 text-center text-sm text-neutral-400">
                             Don&apos;t have an account?{" "}
-                            <Link href="/signup" className="text-cyan-400 hover:underline font-medium">
+                            <Link href="/signup" className="text-orange-400 hover:underline font-medium">
                                 Sign up
                             </Link>
                         </div>
                     </CardContent>
                 </Card>
 
-                <p className="mt-6 text-center text-sm text-slate-500">
+                <p className="mt-6 text-center text-sm text-neutral-500">
                     Protected by Supabase Auth.{" "}
-                    <Link href="/privacy" className="text-cyan-400 hover:underline">
+                    <Link href="/privacy" className="text-orange-400 hover:underline">
                         Privacy Policy
                     </Link>
                 </p>

@@ -62,11 +62,11 @@ export default function URLCheckerPage() {
     const getRiskColor = (level: string) => {
         switch (level) {
             case "safe": return "text-emerald-400 bg-emerald-500/20";
-            case "low": return "text-blue-400 bg-blue-500/20";
+            case "low": return "text-blue-400 bg-orange-500/20";
             case "medium": return "text-yellow-400 bg-yellow-500/20";
             case "high": return "text-orange-400 bg-orange-500/20";
             case "critical": return "text-red-400 bg-red-500/20";
-            default: return "text-slate-400 bg-slate-500/20";
+            default: return "text-neutral-400 bg-neutral-500/20";
         }
     };
 
@@ -79,10 +79,10 @@ export default function URLCheckerPage() {
             {/* Header */}
             <div>
                 <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                    <Link2 className="h-7 w-7 text-cyan-400" />
+                    <Link2 className="h-7 w-7 text-orange-400" />
                     URL Safety Checker
                 </h1>
-                <p className="mt-1 text-slate-400">
+                <p className="mt-1 text-neutral-400">
                     Check any link for phishing, malware, or scam before clicking
                 </p>
             </div>
@@ -92,7 +92,7 @@ export default function URLCheckerPage() {
                 <CardContent className="py-6">
                     <div className="space-y-4">
                         <div className="relative">
-                            <Globe className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                            <Globe className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
                             <input
                                 type="url"
                                 value={url}
@@ -103,7 +103,7 @@ export default function URLCheckerPage() {
                                 }}
                                 onKeyDown={(e) => e.key === "Enter" && checkURL()}
                                 placeholder="https://example.com or paste any suspicious link..."
-                                className="w-full rounded-xl border border-slate-700 bg-slate-900 py-4 pl-12 pr-4 text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                                className="w-full rounded-xl border border-neutral-700 bg-neutral-900 py-4 pl-12 pr-4 text-white placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                             />
                         </div>
 
@@ -150,7 +150,7 @@ export default function URLCheckerPage() {
                                         <h2 className="mt-4 text-2xl font-bold text-emerald-400">
                                             URL Appears Safe
                                         </h2>
-                                        <p className="mt-2 text-slate-400">
+                                        <p className="mt-2 text-neutral-400">
                                             No immediate threats detected
                                         </p>
                                     </>
@@ -162,7 +162,7 @@ export default function URLCheckerPage() {
                                         <h2 className="mt-4 text-2xl font-bold text-red-400">
                                             Warning: Potential Threat
                                         </h2>
-                                        <p className="mt-2 text-slate-400">
+                                        <p className="mt-2 text-neutral-400">
                                             This URL may be dangerous
                                         </p>
                                     </>
@@ -172,7 +172,7 @@ export default function URLCheckerPage() {
                                     <span className={`rounded-full px-4 py-1 text-sm font-bold uppercase ${getRiskColor(analysis.riskLevel)}`}>
                                         {analysis.riskLevel} Risk
                                     </span>
-                                    <span className="text-sm text-slate-500">
+                                    <span className="text-sm text-neutral-500">
                                         Score: {analysis.riskScore}/100
                                     </span>
                                 </div>
@@ -186,27 +186,27 @@ export default function URLCheckerPage() {
                         <Card variant="elevated">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2 text-base">
-                                    <Globe className="h-5 w-5 text-cyan-400" />
+                                    <Globe className="h-5 w-5 text-orange-400" />
                                     Domain Information
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-3">
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400">Domain</span>
+                                    <span className="text-neutral-400">Domain</span>
                                     <span className="font-mono text-white">{analysis.details.domain}</span>
                                 </div>
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400">Domain Age</span>
+                                    <span className="text-neutral-400">Domain Age</span>
                                     <span className="text-white">{analysis.details.registrationAge}</span>
                                 </div>
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400">SSL Certificate</span>
+                                    <span className="text-neutral-400">SSL Certificate</span>
                                     <span className={analysis.details.ssl ? "text-emerald-400" : "text-red-400"}>
                                         {analysis.details.ssl ? "Valid HTTPS" : "Not Secure"}
                                     </span>
                                 </div>
                                 <div className="flex justify-between text-sm">
-                                    <span className="text-slate-400">Redirects</span>
+                                    <span className="text-neutral-400">Redirects</span>
                                     <span className={analysis.details.redirects ? "text-yellow-400" : "text-emerald-400"}>
                                         {analysis.details.redirects ? "Yes (Suspicious)" : "No"}
                                     </span>
@@ -228,7 +228,7 @@ export default function URLCheckerPage() {
                                         {analysis.threats.map((threat, index) => (
                                             <li key={index} className="flex items-start gap-2 text-sm">
                                                 <X className="h-4 w-4 shrink-0 text-red-400" />
-                                                <span className="text-slate-300">{threat}</span>
+                                                <span className="text-neutral-300">{threat}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -247,15 +247,15 @@ export default function URLCheckerPage() {
                         <Card variant="elevated">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Shield className="h-5 w-5 text-cyan-400" />
+                                    <Shield className="h-5 w-5 text-orange-400" />
                                     Recommendations
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <ul className="space-y-2">
                                     {analysis.recommendations.map((rec, index) => (
-                                        <li key={index} className="flex items-start gap-2 text-sm text-slate-300">
-                                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+                                        <li key={index} className="flex items-start gap-2 text-sm text-neutral-300">
+                                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" />
                                             {rec}
                                         </li>
                                     ))}

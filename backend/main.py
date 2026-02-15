@@ -30,6 +30,9 @@ from schemas import (
     HealthResponse, ThreatTrendPoint
 )
 from analyzer import get_analyzer, ThreatAnalyzer
+from endpoint_routes import router as endpoint_router
+from module_routes import router as module_router
+import endpoint_models  # Ensure endpoint tables are registered with Base
 
 
 # ============================================
@@ -88,6 +91,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include endpoint agent API routes
+app.include_router(endpoint_router)
+
+# Include security module routes (all 9 modules)
+app.include_router(module_router)
 
 
 # ============================================
@@ -179,9 +188,9 @@ async def health_check():
     return HealthResponse(
         status="healthy",
         version=settings.app_version,
-        demoMode=settings.demo_mode,
+        demo_mode=settings.demo_mode,
         database="connected",
-        aiModel="loaded",
+        ai_model="loaded",
         timestamp=datetime.utcnow().isoformat() + "Z"
     )
 

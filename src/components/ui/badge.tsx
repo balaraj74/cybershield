@@ -4,17 +4,17 @@ import { cn, getSeverityColors } from "@/lib/utils";
 import type { SeverityLevel } from "@/types";
 
 const badgeVariants = cva(
-    "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2",
+    "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2",
     {
         variants: {
             variant: {
-                default: "border-transparent bg-slate-800 text-slate-300",
-                secondary: "border-transparent bg-slate-700 text-slate-300",
-                outline: "text-slate-300 border border-slate-600",
+                default: "border-transparent bg-neutral-800 text-neutral-300",
+                secondary: "border-transparent bg-neutral-700 text-neutral-300",
+                outline: "text-neutral-300 border border-neutral-600",
                 success: "border-transparent bg-emerald-500/20 text-emerald-400",
                 warning: "border-transparent bg-yellow-500/20 text-yellow-400",
                 danger: "border-transparent bg-red-500/20 text-red-400",
-                info: "border-transparent bg-cyan-500/20 text-cyan-400",
+                info: "border-transparent bg-orange-500/20 text-orange-400",
             },
         },
         defaultVariants: {

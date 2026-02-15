@@ -14,7 +14,7 @@ const Progress = React.forwardRef<
     <ProgressPrimitive.Root
         ref={ref}
         className={cn(
-            "relative h-2 w-full overflow-hidden rounded-full bg-slate-800",
+            "relative h-2 w-full overflow-hidden rounded-full bg-neutral-800",
             className
         )}
         {...props}
@@ -22,7 +22,7 @@ const Progress = React.forwardRef<
         <ProgressPrimitive.Indicator
             className={cn(
                 "h-full w-full flex-1 transition-all duration-500 ease-out",
-                indicatorClassName || "bg-gradient-to-r from-cyan-500 to-blue-500"
+                indicatorClassName || "bg-gradient-to-r from-orange-500 to-blue-500"
             )}
             style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
         />
@@ -70,7 +70,7 @@ function RiskProgress({
         <div className={cn("space-y-1", className)}>
             {showLabel && (
                 <div className="flex justify-between text-sm">
-                    <span className="text-slate-400">Risk Score</span>
+                    <span className="text-neutral-400">Risk Score</span>
                     <span className={cn("font-semibold", colors.text)}>{value}%</span>
                 </div>
             )}

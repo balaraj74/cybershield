@@ -93,10 +93,10 @@ export default function ChatbotPage() {
             <div className="mb-4 flex items-center justify-between">
                 <div>
                     <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                        <Bot className="h-7 w-7 text-cyan-400" />
+                        <Bot className="h-7 w-7 text-orange-400" />
                         AI Security Assistant
                     </h1>
-                    <p className="mt-1 text-slate-400">
+                    <p className="mt-1 text-neutral-400">
                         Powered by Google Gemini 2.5 Flash • Ask anything about cybersecurity
                     </p>
                 </div>
@@ -117,8 +117,8 @@ export default function ChatbotPage() {
                         >
                             <div
                                 className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${message.role === "user"
-                                        ? "bg-cyan-500/20 text-cyan-400"
-                                        : "bg-gradient-to-br from-cyan-500 to-purple-500 text-white"
+                                        ? "bg-orange-500/20 text-orange-400"
+                                        : "bg-gradient-to-br from-orange-500 to-purple-500 text-white"
                                     }`}
                             >
                                 {message.role === "user" ? (
@@ -129,18 +129,18 @@ export default function ChatbotPage() {
                             </div>
                             <div
                                 className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.role === "user"
-                                        ? "bg-cyan-500/20 text-white"
-                                        : "bg-slate-800/80 text-slate-200"
+                                        ? "bg-orange-500/20 text-white"
+                                        : "bg-neutral-800/80 text-neutral-200"
                                     }`}
                             >
                                 <div className="whitespace-pre-wrap text-sm leading-relaxed"
                                     dangerouslySetInnerHTML={{
                                         __html: message.content
-                                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-cyan-400">$1</strong>')
+                                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-orange-400">$1</strong>')
                                             .replace(/\n/g, '<br/>')
                                     }}
                                 />
-                                <div className="mt-1 text-xs text-slate-500">
+                                <div className="mt-1 text-xs text-neutral-500">
                                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                 </div>
                             </div>
@@ -148,10 +148,10 @@ export default function ChatbotPage() {
                     ))}
                     {isLoading && (
                         <div className="flex gap-3">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 text-white">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-purple-500 text-white">
                                 <Shield className="h-4 w-4" />
                             </div>
-                            <div className="flex items-center gap-2 rounded-2xl bg-slate-800/80 px-4 py-3 text-slate-400">
+                            <div className="flex items-center gap-2 rounded-2xl bg-neutral-800/80 px-4 py-3 text-neutral-400">
                                 <Loader2 className="h-4 w-4 animate-spin" />
                                 Analyzing your question...
                             </div>
@@ -162,14 +162,14 @@ export default function ChatbotPage() {
 
                 {/* Suggested Questions */}
                 {messages.length <= 2 && (
-                    <div className="border-t border-slate-800 p-4">
-                        <p className="mb-2 text-xs text-slate-500">Suggested questions:</p>
+                    <div className="border-t border-neutral-800 p-4">
+                        <p className="mb-2 text-xs text-neutral-500">Suggested questions:</p>
                         <div className="flex flex-wrap gap-2">
                             {SUGGESTED_QUESTIONS.map((question, index) => (
                                 <button
                                     key={index}
                                     onClick={() => sendMessage(question)}
-                                    className="rounded-full bg-slate-800 px-3 py-1.5 text-xs text-slate-300 transition-colors hover:bg-slate-700 hover:text-white"
+                                    className="rounded-full bg-neutral-800 px-3 py-1.5 text-xs text-neutral-300 transition-colors hover:bg-neutral-700 hover:text-white"
                                 >
                                     {question}
                                 </button>
@@ -179,7 +179,7 @@ export default function ChatbotPage() {
                 )}
 
                 {/* Input */}
-                <div className="border-t border-slate-800 p-4">
+                <div className="border-t border-neutral-800 p-4">
                     <div className="flex gap-2">
                         <input
                             type="text"
@@ -187,7 +187,7 @@ export default function ChatbotPage() {
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                             placeholder="Ask about cybersecurity, privacy, or threats..."
-                            className="flex-1 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            className="flex-1 rounded-xl border border-neutral-700 bg-neutral-900 px-4 py-3 text-white placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                             disabled={isLoading}
                         />
                         <Button
@@ -198,7 +198,7 @@ export default function ChatbotPage() {
                             <Send className="h-5 w-5" />
                         </Button>
                     </div>
-                    <div className="mt-2 flex items-center justify-between text-xs text-slate-500">
+                    <div className="mt-2 flex items-center justify-between text-xs text-neutral-500">
                         <div className="flex items-center gap-1">
                             <Lock className="h-3 w-3" />
                             Your conversations are not stored

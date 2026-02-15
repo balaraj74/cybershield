@@ -57,7 +57,7 @@ function generateRiskContributions(indicators: ThreatIndicator[]): RiskContribut
         "Urgency language": { total: 0, count: 0, color: "from-red-500 to-orange-500", icon: <AlertTriangle className="h-4 w-4" /> },
         "Suspicious links": { total: 0, count: 0, color: "from-orange-500 to-yellow-500", icon: <LinkIcon className="h-4 w-4" /> },
         "Credential requests": { total: 0, count: 0, color: "from-purple-500 to-pink-500", icon: <Key className="h-4 w-4" /> },
-        "Suspicious patterns": { total: 0, count: 0, color: "from-cyan-500 to-blue-500", icon: <BarChart3 className="h-4 w-4" /> },
+        "Suspicious patterns": { total: 0, count: 0, color: "from-orange-500 to-amber-500", icon: <BarChart3 className="h-4 w-4" /> },
         "Behavioral signals": { total: 0, count: 0, color: "from-pink-500 to-rose-500", icon: <CircleAlert className="h-4 w-4" /> },
     };
 
@@ -232,7 +232,7 @@ Reference ID: ${result.inputHash}`;
                                 </CardTitle>
                                 <SeverityBadge severity={result.severity} />
                             </div>
-                            <p className="text-sm text-slate-400">
+                            <p className="text-sm text-neutral-400">
                                 Analysis ID: {result.inputHash}
                             </p>
                         </div>
@@ -250,7 +250,7 @@ Reference ID: ${result.inputHash}`;
                     {/* Risk Score */}
                     <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-slate-400">
+                            <span className="text-sm font-medium text-neutral-400">
                                 Threat Assessment
                             </span>
                             <span className={cn("text-2xl font-bold", colors.text)}>
@@ -264,8 +264,8 @@ Reference ID: ${result.inputHash}`;
                     </div>
 
                     {/* Summary */}
-                    <div className="rounded-lg border border-slate-700 bg-slate-800/30 p-4">
-                        <p className="text-sm leading-relaxed text-slate-300">
+                    <div className="rounded-lg border border-neutral-700 bg-neutral-800/30 p-4">
+                        <p className="text-sm leading-relaxed text-neutral-300">
                             {result.summary}
                         </p>
                     </div>
@@ -276,8 +276,8 @@ Reference ID: ${result.inputHash}`;
             <Card variant="elevated">
                 <CardHeader>
                     <div className="flex items-center gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
-                            <BarChart3 className="h-4 w-4 text-cyan-400" />
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500/20 to-amber-500/20">
+                            <BarChart3 className="h-4 w-4 text-orange-400" />
                         </div>
                         <div>
                             <CardTitle className="text-base">Risk Contribution Analysis</CardTitle>
@@ -292,12 +292,12 @@ Reference ID: ${result.inputHash}`;
                                 <div key={index} className="space-y-2">
                                     <div className="flex items-center justify-between text-sm">
                                         <div className="flex items-center gap-2">
-                                            <span className="text-slate-400">{contribution.icon}</span>
+                                            <span className="text-neutral-400">{contribution.icon}</span>
                                             <span className="font-medium text-white">{contribution.label}</span>
                                         </div>
                                         <span className="font-bold text-white">{contribution.value}%</span>
                                     </div>
-                                    <div className="relative h-3 w-full overflow-hidden rounded-full bg-slate-800">
+                                    <div className="relative h-3 w-full overflow-hidden rounded-full bg-neutral-800">
                                         <div
                                             className={cn(
                                                 "absolute left-0 top-0 h-full rounded-full bg-gradient-to-r transition-all duration-1000 ease-out",
@@ -320,7 +320,7 @@ Reference ID: ${result.inputHash}`;
                     ) : (
                         <div className="flex flex-col items-center justify-center py-6 text-center">
                             <ShieldCheck className="h-10 w-10 text-emerald-400" />
-                            <p className="mt-3 text-sm text-slate-400">
+                            <p className="mt-3 text-sm text-neutral-400">
                                 No significant risk factors detected
                             </p>
                         </div>
@@ -345,7 +345,7 @@ Reference ID: ${result.inputHash}`;
                     {/* Confidence Meter */}
                     <div className="relative">
                         <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm text-slate-400">Model Confidence</span>
+                            <span className="text-sm text-neutral-400">Model Confidence</span>
                             <span className={cn(
                                 "text-lg font-bold",
                                 result.confidence >= 80 ? "text-emerald-400" :
@@ -354,7 +354,7 @@ Reference ID: ${result.inputHash}`;
                                 {result.confidence}%
                             </span>
                         </div>
-                        <div className="relative h-4 w-full overflow-hidden rounded-full bg-slate-800">
+                        <div className="relative h-4 w-full overflow-hidden rounded-full bg-neutral-800">
                             <div
                                 className={cn(
                                     "h-full rounded-full transition-all duration-1000 ease-out",
@@ -369,7 +369,7 @@ Reference ID: ${result.inputHash}`;
                                 {[20, 40, 60, 80].map((mark) => (
                                     <div
                                         key={mark}
-                                        className="h-full w-px bg-slate-700"
+                                        className="h-full w-px bg-neutral-700"
                                         style={{ marginLeft: `${mark - 1}%` }}
                                     />
                                 ))}
@@ -405,7 +405,7 @@ Reference ID: ${result.inputHash}`;
                                     {falsePositive.level}
                                 </span>
                             </div>
-                            <p className="mt-1 text-sm text-slate-400">
+                            <p className="mt-1 text-sm text-neutral-400">
                                 {falsePositive.message}
                             </p>
                         </div>
@@ -413,14 +413,14 @@ Reference ID: ${result.inputHash}`;
 
                     {/* Mark as Safe Button (Feedback Loop) */}
                     {result.severity !== "safe" && !markedSafe && (
-                        <div className="flex items-center justify-between rounded-lg border border-slate-700 bg-slate-800/30 p-4">
+                        <div className="flex items-center justify-between rounded-lg border border-neutral-700 bg-neutral-800/30 p-4">
                             <div className="flex items-center gap-3">
-                                <ThumbsUp className="h-5 w-5 text-slate-400" />
+                                <ThumbsUp className="h-5 w-5 text-neutral-400" />
                                 <div>
                                     <p className="text-sm font-medium text-white">
                                         Is this a false positive?
                                     </p>
-                                    <p className="text-xs text-slate-500">
+                                    <p className="text-xs text-neutral-500">
                                         Help improve our AI by providing feedback
                                     </p>
                                 </div>
@@ -444,7 +444,7 @@ Reference ID: ${result.inputHash}`;
                                 <p className="text-sm font-medium text-emerald-400">
                                     Feedback Recorded
                                 </p>
-                                <p className="text-xs text-slate-400">
+                                <p className="text-xs text-neutral-400">
                                     Thank you! Your feedback helps improve threat detection accuracy.
                                 </p>
                             </div>
@@ -503,7 +503,7 @@ Reference ID: ${result.inputHash}`;
                                         <h4 className="font-semibold text-white text-sm">
                                             {action.title}
                                         </h4>
-                                        <p className="mt-1 text-xs text-slate-400 line-clamp-2">
+                                        <p className="mt-1 text-xs text-neutral-400 line-clamp-2">
                                             {action.description}
                                         </p>
                                         {action.actionLabel && (
@@ -528,7 +528,7 @@ Reference ID: ${result.inputHash}`;
             <Card variant="elevated">
                 <CardHeader>
                     <div className="flex items-center gap-2">
-                        <Info className="h-5 w-5 text-cyan-400" />
+                        <Info className="h-5 w-5 text-orange-400" />
                         <CardTitle className="text-base">Detailed Threat Explanation</CardTitle>
                     </div>
                 </CardHeader>
@@ -543,17 +543,17 @@ Reference ID: ${result.inputHash}`;
                                         ) : section.severity === "medium" ? (
                                             <AlertTriangle className="h-4 w-4 text-yellow-400" />
                                         ) : (
-                                            <Info className="h-4 w-4 text-cyan-400" />
+                                            <Info className="h-4 w-4 text-orange-400" />
                                         )}
                                         <span>{section.title}</span>
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    <p className="mb-4 text-slate-400">{section.content}</p>
+                                    <p className="mb-4 text-neutral-400">{section.content}</p>
 
                                     {section.indicators && section.indicators.length > 0 && (
                                         <div className="space-y-2">
-                                            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                                            <h4 className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                                                 Detected Indicators
                                             </h4>
                                             <div className="space-y-2">
@@ -576,7 +576,7 @@ Reference ID: ${result.inputHash}`;
                     <CardHeader>
                         <div className="flex items-center justify-between">
                             <CardTitle className="text-base">Suspicious Indicators</CardTitle>
-                            <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-400">
+                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs font-medium text-neutral-400">
                                 {result.indicators.length} detected
                             </span>
                         </div>
@@ -612,7 +612,7 @@ function IndicatorItem({
     const typeColors = {
         keyword: "bg-purple-500/20 text-purple-400 border-purple-500/30",
         url: "bg-orange-500/20 text-orange-400 border-orange-500/30",
-        pattern: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+        pattern: "bg-orange-500/20 text-orange-400 border-orange-500/30",
         behavioral: "bg-pink-500/20 text-pink-400 border-pink-500/30",
     };
 
@@ -626,7 +626,7 @@ function IndicatorItem({
     );
 
     return (
-        <div className="group flex items-start gap-3 rounded-lg border border-slate-700 bg-slate-800/30 p-3 transition-all hover:border-slate-600 hover:bg-slate-800/50">
+        <div className="group flex items-start gap-3 rounded-lg border border-neutral-700 bg-neutral-800/30 p-3 transition-all hover:border-neutral-600 hover:bg-neutral-800/50">
             <span
                 className={cn(
                     "shrink-0 rounded-md border px-2 py-1 text-xs font-medium capitalize",
@@ -639,13 +639,13 @@ function IndicatorItem({
                 <code className="block text-sm text-white break-all">
                     {highlightedValue}
                 </code>
-                <p className="mt-1 text-xs text-slate-500">{indicator.description}</p>
+                <p className="mt-1 text-xs text-neutral-500">{indicator.description}</p>
             </div>
             {showContribution && (
                 <div className="shrink-0 text-right">
                     <div className="flex items-center gap-2">
                         {/* Mini progress bar */}
-                        <div className="w-16 h-2 bg-slate-700 rounded-full overflow-hidden hidden sm:block">
+                        <div className="w-16 h-2 bg-neutral-700 rounded-full overflow-hidden hidden sm:block">
                             <div
                                 className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full"
                                 style={{ width: `${Math.min(indicator.riskContribution * 2.5, 100)}%` }}
@@ -655,7 +655,7 @@ function IndicatorItem({
                             +{indicator.riskContribution}%
                         </span>
                     </div>
-                    <p className="text-xs text-slate-500">risk</p>
+                    <p className="text-xs text-neutral-500">risk</p>
                 </div>
             )}
         </div>

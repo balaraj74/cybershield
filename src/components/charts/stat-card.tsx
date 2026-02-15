@@ -19,31 +19,70 @@ interface StatCardProps {
 
 const variantStyles = {
     default: {
-        iconBg: "bg-slate-800",
-        iconColor: "text-slate-400",
+        iconBg: "bg-neutral-800",
+        iconColor: "text-neutral-400",
         valueColor: "text-white",
+        sparkColor: "#737373",
+        trendColor: "text-neutral-400",
     },
     critical: {
-        iconBg: "bg-red-500/20",
+        iconBg: "bg-red-500/10",
         iconColor: "text-red-400",
         valueColor: "text-red-400",
+        sparkColor: "#ef4444",
+        trendColor: "text-red-400",
     },
     warning: {
-        iconBg: "bg-orange-500/20",
+        iconBg: "bg-orange-500/10",
         iconColor: "text-orange-400",
         valueColor: "text-orange-400",
+        sparkColor: "#f97316",
+        trendColor: "text-orange-400",
     },
     success: {
-        iconBg: "bg-emerald-500/20",
+        iconBg: "bg-emerald-500/10",
         iconColor: "text-emerald-400",
         valueColor: "text-emerald-400",
+        sparkColor: "#22c55e",
+        trendColor: "text-emerald-400",
     },
     info: {
-        iconBg: "bg-cyan-500/20",
-        iconColor: "text-cyan-400",
-        valueColor: "text-cyan-400",
+        iconBg: "bg-orange-500/10",
+        iconColor: "text-orange-400",
+        valueColor: "text-white",
+        sparkColor: "#e85d04",
+        trendColor: "text-orange-400",
     },
 };
+
+// Simple sparkline bars
+function MiniSparkline({ color, variant }: { color: string; variant: string }) {
+    // Different bar patterns per variant
+    const patterns: Record<string, number[]> = {
+        default: [3, 5, 4, 7, 6, 8, 5, 7, 9, 6, 8, 7],
+        critical: [6, 4, 7, 5, 8, 6, 4, 7, 3, 5, 4, 6],
+        warning: [2, 4, 3, 6, 5, 7, 8, 6, 5, 7, 6, 5],
+        success: [4, 5, 6, 5, 7, 8, 7, 9, 8, 7, 8, 9],
+        info: [5, 6, 4, 7, 5, 8, 6, 7, 5, 8, 7, 6],
+    };
+    const bars = patterns[variant] || patterns.default;
+
+    return (
+        <div className="flex items-end gap-[2px] h-8">
+            {bars.map((h, i) => (
+                <div
+                    key={i}
+                    className="w-[3px] rounded-sm transition-all"
+                    style={{
+                        height: `${h * 3.2}px`,
+                        backgroundColor: color,
+                        opacity: 0.6 + (i / bars.length) * 0.4,
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
 
 export function StatCard({
     title,
@@ -58,57 +97,33 @@ export function StatCard({
 
     return (
         <Card
-            variant="elevated"
             className={cn(
-                "relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/50 hover:-translate-y-0.5",
+                "relative overflow-hidden border-neutral-800/30 bg-[#111111] hover:bg-[#141414] transition-all duration-300",
                 className
             )}
         >
-            <CardContent className="p-6">
+            <CardContent className="p-5">
                 <div className="flex items-start justify-between">
-                    <div className="space-y-3">
-                        <p className="text-sm font-medium text-slate-400">{title}</p>
-                        <p className={cn("text-3xl font-bold", styles.valueColor)}>
-                            {value}
-                        </p>
-                        {subtitle && (
-                            <p className="text-sm text-slate-500">{subtitle}</p>
-                        )}
-                        {trend && (
-                            <div className="flex items-center gap-1">
-                                <span
-                                    className={cn(
-                                        "text-xs font-medium",
-                                        trend.isPositive ? "text-emerald-400" : "text-red-400"
-                                    )}
-                                >
+                    <div className="space-y-1.5 flex-1">
+                        <div className="flex items-center gap-2">
+                            <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide">{title}</p>
+                            {trend && (
+                                <span className={cn("text-[10px] font-semibold", styles.trendColor)}>
                                     {trend.isPositive ? "↑" : "↓"} {Math.abs(trend.value)}%
                                 </span>
-                                <span className="text-xs text-slate-500">vs last period</span>
-                            </div>
+                            )}
+                        </div>
+                        <div className="flex items-end gap-3">
+                            <p className={cn("text-2xl font-bold tracking-tight", styles.valueColor)}>
+                                {value}
+                            </p>
+                            <MiniSparkline color={styles.sparkColor} variant={variant} />
+                        </div>
+                        {subtitle && (
+                            <p className="text-[11px] text-neutral-600">{subtitle}</p>
                         )}
-                    </div>
-                    <div
-                        className={cn(
-                            "flex h-12 w-12 items-center justify-center rounded-xl",
-                            styles.iconBg
-                        )}
-                    >
-                        <Icon className={cn("h-6 w-6", styles.iconColor)} />
                     </div>
                 </div>
-
-                {/* Decorative gradient */}
-                <div
-                    className={cn(
-                        "absolute -bottom-10 -right-10 h-32 w-32 rounded-full blur-2xl opacity-10",
-                        variant === "critical" && "bg-red-500",
-                        variant === "warning" && "bg-orange-500",
-                        variant === "success" && "bg-emerald-500",
-                        variant === "info" && "bg-cyan-500",
-                        variant === "default" && "bg-slate-500"
-                    )}
-                />
             </CardContent>
         </Card>
     );

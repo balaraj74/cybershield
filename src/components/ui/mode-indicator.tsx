@@ -46,13 +46,13 @@ export function DemoModeIndicator({ className }: DemoModeIndicatorProps) {
                         Active
                     </span>
                 </div>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-neutral-400">
                     Using simulated AI responses for demonstration
                 </p>
             </div>
             <button
                 onClick={handleDismiss}
-                className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-800 hover:text-slate-300"
+                className="rounded-lg p-1 text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-neutral-300"
             >
                 <X className="h-4 w-4" />
             </button>

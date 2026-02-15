@@ -75,10 +75,10 @@ export default function BreachCheckerPage() {
             {/* Header */}
             <div>
                 <h1 className="flex items-center gap-2 text-2xl font-bold text-white">
-                    <Database className="h-7 w-7 text-cyan-400" />
+                    <Database className="h-7 w-7 text-orange-400" />
                     Dark Web Breach Checker
                 </h1>
-                <p className="mt-1 text-slate-400">
+                <p className="mt-1 text-neutral-400">
                     Check if your email appears in known data breaches • Powered by Have I Been Pwned
                 </p>
             </div>
@@ -88,7 +88,7 @@ export default function BreachCheckerPage() {
                 <CardContent className="py-6">
                     <div className="mx-auto max-w-xl space-y-4">
                         <div className="relative">
-                            <Mail className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                            <Mail className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
                             <input
                                 type="email"
                                 value={email}
@@ -98,7 +98,7 @@ export default function BreachCheckerPage() {
                                 }}
                                 onKeyDown={(e) => e.key === "Enter" && checkBreaches()}
                                 placeholder="Enter your email address..."
-                                className="w-full rounded-xl border border-slate-700 bg-slate-900 py-4 pl-12 pr-4 text-white placeholder:text-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                                className="w-full rounded-xl border border-neutral-700 bg-neutral-900 py-4 pl-12 pr-4 text-white placeholder:text-neutral-500 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                             />
                         </div>
 
@@ -124,7 +124,7 @@ export default function BreachCheckerPage() {
                             )}
                         </Button>
 
-                        <p className="text-center text-xs text-slate-500">
+                        <p className="text-center text-xs text-neutral-500">
                             <Lock className="mr-1 inline h-3 w-3" />
                             Your email is sent securely and never stored
                         </p>
@@ -149,7 +149,7 @@ export default function BreachCheckerPage() {
                                     <h2 className="mt-4 text-2xl font-bold text-red-400">
                                         Oh no — breached!
                                     </h2>
-                                    <p className="mt-2 text-slate-400">
+                                    <p className="mt-2 text-neutral-400">
                                         Your email was found in <span className="font-bold text-white">{result.breachCount}</span> data breaches
                                     </p>
                                 </>
@@ -161,7 +161,7 @@ export default function BreachCheckerPage() {
                                     <h2 className="mt-4 text-2xl font-bold text-emerald-400">
                                         Good news — no breaches found!
                                     </h2>
-                                    <p className="mt-2 text-slate-400">
+                                    <p className="mt-2 text-neutral-400">
                                         Your email wasn't found in any known data breaches
                                     </p>
                                 </>
@@ -178,20 +178,20 @@ export default function BreachCheckerPage() {
                             {result.breaches.map((breach, index) => (
                                 <Card key={index} variant="elevated" className="overflow-hidden">
                                     <div className="flex items-start gap-4 p-4">
-                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-slate-800">
-                                            <Globe className="h-6 w-6 text-slate-400" />
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-neutral-800">
+                                            <Globe className="h-6 w-6 text-neutral-400" />
                                         </div>
                                         <div className="flex-1 space-y-2">
                                             <div className="flex items-center justify-between">
                                                 <h4 className="font-semibold text-white">{breach.name}</h4>
                                                 {breach.isVerified && (
-                                                    <span className="rounded bg-cyan-500/20 px-2 py-0.5 text-xs text-cyan-400">
+                                                    <span className="rounded bg-orange-500/20 px-2 py-0.5 text-xs text-orange-400">
                                                         Verified
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="text-sm text-slate-400">{breach.description}</p>
-                                            <div className="flex flex-wrap gap-4 text-xs text-slate-500">
+                                            <p className="text-sm text-neutral-400">{breach.description}</p>
+                                            <div className="flex flex-wrap gap-4 text-xs text-neutral-500">
                                                 <span className="flex items-center gap-1">
                                                     <Calendar className="h-3 w-3" />
                                                     Breached: {new Date(breach.breachDate).toLocaleDateString()}
@@ -205,13 +205,13 @@ export default function BreachCheckerPage() {
                                                 {breach.dataClasses.slice(0, 6).map((dataClass, i) => (
                                                     <span
                                                         key={i}
-                                                        className="rounded bg-slate-800 px-2 py-0.5 text-xs text-slate-300"
+                                                        className="rounded bg-neutral-800 px-2 py-0.5 text-xs text-neutral-300"
                                                     >
                                                         {dataClass}
                                                     </span>
                                                 ))}
                                                 {breach.dataClasses.length > 6 && (
-                                                    <span className="rounded bg-slate-800 px-2 py-0.5 text-xs text-slate-500">
+                                                    <span className="rounded bg-neutral-800 px-2 py-0.5 text-xs text-neutral-500">
                                                         +{breach.dataClasses.length - 6} more
                                                     </span>
                                                 )}
@@ -228,38 +228,38 @@ export default function BreachCheckerPage() {
                         <Card variant="elevated">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Shield className="h-5 w-5 text-cyan-400" />
+                                    <Shield className="h-5 w-5 text-orange-400" />
                                     Recommended Actions
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-3">
-                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-xs text-cyan-400">1</div>
+                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-xs text-orange-400">1</div>
                                         <div>
                                             <p className="font-medium text-white">Change your password immediately</p>
-                                            <p className="text-sm text-slate-400">Update passwords for any accounts using this email</p>
+                                            <p className="text-sm text-neutral-400">Update passwords for any accounts using this email</p>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
-                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-xs text-cyan-400">2</div>
+                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-xs text-orange-400">2</div>
                                         <div>
                                             <p className="font-medium text-white">Enable two-factor authentication</p>
-                                            <p className="text-sm text-slate-400">Add an extra layer of security to your accounts</p>
+                                            <p className="text-sm text-neutral-400">Add an extra layer of security to your accounts</p>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
-                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-xs text-cyan-400">3</div>
+                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-xs text-orange-400">3</div>
                                         <div>
                                             <p className="font-medium text-white">Use a password manager</p>
-                                            <p className="text-sm text-slate-400">Generate unique, strong passwords for each account</p>
+                                            <p className="text-sm text-neutral-400">Generate unique, strong passwords for each account</p>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
-                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-xs text-cyan-400">4</div>
+                                        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-500/20 text-xs text-orange-400">4</div>
                                         <div>
                                             <p className="font-medium text-white">Monitor your accounts</p>
-                                            <p className="text-sm text-slate-400">Watch for suspicious activity in emails and bank statements</p>
+                                            <p className="text-sm text-neutral-400">Watch for suspicious activity in emails and bank statements</p>
                                         </div>
                                     </li>
                                 </ul>

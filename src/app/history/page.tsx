@@ -86,7 +86,7 @@ export default function HistoryPage() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                     <h1 className="text-2xl font-bold text-white">Analysis History</h1>
-                    <p className="mt-1 text-slate-400">
+                    <p className="mt-1 text-neutral-400">
                         View past threat analyses and their results
                     </p>
                 </div>
@@ -101,7 +101,7 @@ export default function HistoryPage() {
                 <CardContent className="p-4">
                     <div className="flex flex-col gap-4 md:flex-row md:items-center">
                         <div className="relative flex-1">
-                            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
                             <Input
                                 placeholder="Search by ID or threat type..."
                                 value={searchQuery}
@@ -110,7 +110,7 @@ export default function HistoryPage() {
                             />
                         </div>
                         <div className="flex items-center gap-2">
-                            <Filter className="h-4 w-4 text-slate-500" />
+                            <Filter className="h-4 w-4 text-neutral-500" />
                             <Select value={severity} onValueChange={setSeverity}>
                                 <SelectTrigger className="w-[180px]">
                                     <SelectValue placeholder="Filter by severity" />
@@ -130,10 +130,10 @@ export default function HistoryPage() {
             </Card>
 
             {/* Privacy Notice */}
-            <div className="flex items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/50 p-4">
-                <Clock className="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" />
+            <div className="flex items-start gap-3 rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
+                <Clock className="mt-0.5 h-5 w-5 shrink-0 text-orange-400" />
                 <div>
-                    <p className="text-sm text-slate-300">
+                    <p className="text-sm text-neutral-300">
                         <span className="font-medium">Privacy-Preserved Records: </span>
                         Only anonymized metadata is stored. Original content is never retained.
                         Records show hash-based references only.
@@ -147,7 +147,7 @@ export default function HistoryPage() {
             ) : error ? (
                 <Card variant="elevated">
                     <CardContent className="py-12 text-center">
-                        <p className="text-slate-400">Failed to load history. Please try again.</p>
+                        <p className="text-neutral-400">Failed to load history. Please try again.</p>
                         <Button className="mt-4" onClick={() => window.location.reload()}>
                             Retry
                         </Button>
@@ -163,45 +163,45 @@ export default function HistoryPage() {
                     <CardContent>
                         {!data || data.items.length === 0 ? (
                             <div className="py-12 text-center">
-                                <p className="text-slate-400">No analysis records found</p>
+                                <p className="text-neutral-400">No analysis records found</p>
                             </div>
                         ) : (
                             <>
                                 {/* Table Header */}
-                                <div className="hidden rounded-t-lg bg-slate-800/50 px-4 py-3 md:grid md:grid-cols-6 md:gap-4">
-                                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                                <div className="hidden rounded-t-lg bg-neutral-800/50 px-4 py-3 md:grid md:grid-cols-6 md:gap-4">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
                                         Type
                                     </span>
-                                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
                                         Threat
                                     </span>
-                                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
                                         Severity
                                     </span>
-                                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
                                         Risk Score
                                     </span>
-                                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
                                         Analyzed
                                     </span>
-                                    <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
                                         Ref ID
                                     </span>
                                 </div>
 
                                 {/* Table Body */}
-                                <div className="divide-y divide-slate-800">
+                                <div className="divide-y divide-neutral-800">
                                     {data.items.map((entry) => {
                                         const Icon = inputTypeIcons[entry.inputType];
                                         return (
                                             <div
                                                 key={entry.id}
-                                                className="grid grid-cols-1 gap-3 px-4 py-4 transition-colors hover:bg-slate-800/30 md:grid-cols-6 md:items-center md:gap-4"
+                                                className="grid grid-cols-1 gap-3 px-4 py-4 transition-colors hover:bg-neutral-800/30 md:grid-cols-6 md:items-center md:gap-4"
                                             >
                                                 {/* Type */}
                                                 <div className="flex items-center gap-3">
-                                                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800">
-                                                        <Icon className="h-4 w-4 text-slate-400" />
+                                                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-800">
+                                                        <Icon className="h-4 w-4 text-neutral-400" />
                                                     </div>
                                                     <span className="capitalize text-white md:hidden">
                                                         {entry.inputType}
@@ -223,7 +223,7 @@ export default function HistoryPage() {
                                                 {/* Risk Score */}
                                                 <div>
                                                     <div className="flex items-center gap-2">
-                                                        <div className="h-2 w-16 overflow-hidden rounded-full bg-slate-700">
+                                                        <div className="h-2 w-16 overflow-hidden rounded-full bg-neutral-700">
                                                             <div
                                                                 className={`h-full transition-all ${entry.riskScore >= 80
                                                                         ? "bg-red-500"
@@ -232,7 +232,7 @@ export default function HistoryPage() {
                                                                             : entry.riskScore >= 40
                                                                                 ? "bg-yellow-500"
                                                                                 : entry.riskScore >= 20
-                                                                                    ? "bg-blue-500"
+                                                                                    ? "bg-orange-500"
                                                                                     : "bg-emerald-500"
                                                                     }`}
                                                                 style={{ width: `${entry.riskScore}%` }}
@@ -246,17 +246,17 @@ export default function HistoryPage() {
 
                                                 {/* Analyzed */}
                                                 <div>
-                                                    <p className="text-sm text-slate-400">
+                                                    <p className="text-sm text-neutral-400">
                                                         {formatRelativeTime(entry.analyzedAt)}
                                                     </p>
-                                                    <p className="text-xs text-slate-500">
+                                                    <p className="text-xs text-neutral-500">
                                                         {formatDate(entry.analyzedAt)}
                                                     </p>
                                                 </div>
 
                                                 {/* Ref ID */}
                                                 <div>
-                                                    <code className="text-xs text-slate-500">
+                                                    <code className="text-xs text-neutral-500">
                                                         {entry.inputHash}
                                                     </code>
                                                 </div>
@@ -267,8 +267,8 @@ export default function HistoryPage() {
 
                                 {/* Pagination */}
                                 {totalPages > 1 && (
-                                    <div className="mt-4 flex items-center justify-between border-t border-slate-800 pt-4">
-                                        <p className="text-sm text-slate-500">
+                                    <div className="mt-4 flex items-center justify-between border-t border-neutral-800 pt-4">
+                                        <p className="text-sm text-neutral-500">
                                             Page {page} of {totalPages}
                                         </p>
                                         <div className="flex items-center gap-2">

@@ -93,7 +93,7 @@ Example:
             {/* Page Header */}
             <div>
                 <h1 className="text-2xl font-bold text-white">Threat Analysis</h1>
-                <p className="mt-1 text-slate-400">
+                <p className="mt-1 text-neutral-400">
                     Submit content for real-time AI-powered security analysis
                 </p>
             </div>
@@ -136,7 +136,7 @@ Example:
                                         onChange={(e) => setContent(e.target.value)}
                                         className="min-h-[240px]"
                                     />
-                                    <p className="text-xs text-slate-500">{descriptions.email}</p>
+                                    <p className="text-xs text-neutral-500">{descriptions.email}</p>
                                 </div>
                             </TabsContent>
 
@@ -149,7 +149,7 @@ Example:
                                         value={content}
                                         onChange={(e) => setContent(e.target.value)}
                                     />
-                                    <p className="text-xs text-slate-500">{descriptions.url}</p>
+                                    <p className="text-xs text-neutral-500">{descriptions.url}</p>
                                 </div>
                             </TabsContent>
 
@@ -162,7 +162,7 @@ Example:
                                         onChange={(e) => setContent(e.target.value)}
                                         className="min-h-[240px]"
                                     />
-                                    <p className="text-xs text-slate-500">{descriptions.message}</p>
+                                    <p className="text-xs text-neutral-500">{descriptions.message}</p>
                                 </div>
                             </TabsContent>
                         </Tabs>
@@ -187,10 +187,10 @@ Example:
                         </Button>
 
                         {/* Privacy Notice */}
-                        <div className="flex items-start gap-2 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
-                            <Shield className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
-                            <p className="text-xs text-slate-500">
-                                <span className="font-medium text-slate-400">Privacy First: </span>
+                        <div className="flex items-start gap-2 rounded-lg border border-neutral-800 bg-neutral-900/50 p-3">
+                            <Shield className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                            <p className="text-xs text-neutral-500">
+                                <span className="font-medium text-neutral-400">Privacy First: </span>
                                 Your input is processed securely and immediately discarded after
                                 analysis. We never store raw content - only anonymized threat
                                 indicators for your records.
@@ -205,16 +205,16 @@ Example:
                         <Card variant="elevated" className="min-h-[400px]">
                             <CardContent className="flex h-full min-h-[400px] flex-col items-center justify-center">
                                 <div className="relative">
-                                    <div className="h-16 w-16 animate-spin rounded-full border-4 border-slate-700 border-t-cyan-400" />
-                                    <Shield className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-cyan-400" />
+                                    <div className="h-16 w-16 animate-spin rounded-full border-4 border-neutral-700 border-t-orange-400" />
+                                    <Shield className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-orange-400" />
                                 </div>
                                 <h3 className="mt-6 text-lg font-semibold text-white">
                                     Analyzing Content
                                 </h3>
-                                <p className="mt-2 text-sm text-slate-400">
+                                <p className="mt-2 text-sm text-neutral-400">
                                     Our AI is scanning for threats...
                                 </p>
-                                <div className="mt-6 space-y-2 text-center text-xs text-slate-500">
+                                <div className="mt-6 space-y-2 text-center text-xs text-neutral-500">
                                     <p>✓ Checking for phishing patterns</p>
                                     <p>✓ Analyzing URL reputation</p>
                                     <p>✓ Detecting social engineering</p>
@@ -230,7 +230,7 @@ Example:
                                 <h3 className="mt-4 text-lg font-semibold text-white">
                                     Analysis Failed
                                 </h3>
-                                <p className="mt-2 text-sm text-slate-400">
+                                <p className="mt-2 text-sm text-neutral-400">
                                     {mutation.error?.message || "An unexpected error occurred"}
                                 </p>
                                 <Button className="mt-6" onClick={() => mutation.reset()}>
@@ -245,17 +245,17 @@ Example:
                     {!mutation.isPending && !mutation.isError && !result && (
                         <Card variant="elevated" className="min-h-[400px]">
                             <CardContent className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
-                                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-800">
-                                    <Shield className="h-8 w-8 text-slate-500" />
+                                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-800">
+                                    <Shield className="h-8 w-8 text-neutral-500" />
                                 </div>
                                 <h3 className="mt-6 text-lg font-semibold text-white">
                                     Ready to Analyze
                                 </h3>
-                                <p className="mt-2 max-w-xs text-sm text-slate-400">
+                                <p className="mt-2 max-w-xs text-sm text-neutral-400">
                                     Enter suspicious content on the left and click "Analyze for
                                     Threats" to start the security scan.
                                 </p>
-                                <div className="mt-6 grid grid-cols-3 gap-4 text-xs text-slate-500">
+                                <div className="mt-6 grid grid-cols-3 gap-4 text-xs text-neutral-500">
                                     <div className="flex flex-col items-center gap-2">
                                         <CheckCircle className="h-5 w-5 text-emerald-400" />
                                         <span>Phishing Detection</span>

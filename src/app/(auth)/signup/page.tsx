@@ -60,16 +60,16 @@ export default function SignUpPage() {
 
     if (success) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
+            <div className="min-h-screen flex items-center justify-center bg-neutral-950 p-4">
                 <div className="fixed inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20" />
 
-                <Card variant="glass" className="max-w-md w-full border-slate-700/50">
+                <Card variant="glass" className="max-w-md w-full border-neutral-700/50">
                     <CardContent className="pt-6 text-center">
                         <div className="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mb-4">
                             <CheckCircle2 className="h-8 w-8 text-emerald-400" />
                         </div>
                         <h2 className="text-xl font-semibold mb-2">Check your email!</h2>
-                        <p className="text-slate-400 mb-6">
+                        <p className="text-neutral-400 mb-6">
                             We&apos;ve sent a confirmation link to <strong className="text-white">{email}</strong>.
                             Click the link to activate your account.
                         </p>
@@ -83,32 +83,32 @@ export default function SignUpPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-neutral-950 p-4">
             {/* Background effects */}
             <div className="fixed inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20" />
-            <div className="fixed -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-            <div className="fixed -right-40 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+            <div className="fixed -left-40 top-0 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
+            <div className="fixed -right-40 bottom-0 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
 
             <div className="relative w-full max-w-md">
                 {/* Logo */}
                 <div className="mb-8 text-center">
                     <Link href="/" className="inline-flex items-center gap-3">
                         <div className="relative">
-                            <Shield className="h-12 w-12 text-cyan-400" />
+                            <Shield className="h-12 w-12 text-orange-400" />
                             <ShieldCheck className="absolute -bottom-1 -right-1 h-5 w-5 text-emerald-400" />
                         </div>
                         <div className="flex flex-col items-start">
-                            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-2xl font-bold text-transparent">
+                            <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-2xl font-bold text-transparent">
                                 CyberShield
                             </span>
-                            <span className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                            <span className="text-xs uppercase tracking-[0.2em] text-neutral-500">
                                 AI Security Platform
                             </span>
                         </div>
                     </Link>
                 </div>
 
-                <Card variant="glass" className="border-slate-700/50">
+                <Card variant="glass" className="border-neutral-700/50">
                     <CardHeader className="text-center">
                         <CardTitle className="text-xl">Create Account</CardTitle>
                         <CardDescription>
@@ -165,7 +165,7 @@ export default function SignUpPage() {
                                     />
                                     <button
                                         type="button"
-                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300"
                                         onClick={() => setShowPassword(!showPassword)}
                                     >
                                         {showPassword ? (
@@ -175,7 +175,7 @@ export default function SignUpPage() {
                                         )}
                                     </button>
                                 </div>
-                                <p className="text-xs text-slate-500">
+                                <p className="text-xs text-neutral-500">
                                     Must be at least 8 characters
                                 </p>
                             </div>
@@ -204,18 +204,18 @@ export default function SignUpPage() {
                         </form>
 
                         {/* Login Link */}
-                        <div className="mt-6 text-center text-sm text-slate-400">
+                        <div className="mt-6 text-center text-sm text-neutral-400">
                             Already have an account?{" "}
-                            <Link href="/login" className="text-cyan-400 hover:underline font-medium">
+                            <Link href="/login" className="text-orange-400 hover:underline font-medium">
                                 Sign in
                             </Link>
                         </div>
                     </CardContent>
                 </Card>
 
-                <p className="mt-6 text-center text-sm text-slate-500">
+                <p className="mt-6 text-center text-sm text-neutral-500">
                     By signing up, you agree to our{" "}
-                    <Link href="/privacy" className="text-cyan-400 hover:underline">
+                    <Link href="/privacy" className="text-orange-400 hover:underline">
                         Privacy Policy
                     </Link>
                 </p>

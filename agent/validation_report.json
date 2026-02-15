@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-02-15T19:51:17.595120Z",
+  "overall_detection_rate": 1.0,
+  "false_positive_rate": 0.0,
+  "passed": true,
+  "criteria": {
+    "min_detection_rate": 0.8,
+    "max_false_positive_rate": 0.2
+  },
+  "simulations": [
+    {
+      "name": "Ransomware Simulation",
+      "attack_type": "ransomware",
+      "behaviors_generated": 3,
+      "threats_detected": 3,
+      "detection_rate": 1.0,
+      "avg_anomaly_score": 0.85,
+      "max_anomaly_score": 1.0,
+      "duration_seconds": 0.21,
+      "details": [
+        "  \u26a0\ufe0f  DETECTED: svchost_helper.exe (PID 66601) | Score: 1.00 | Severity: critical | Reason: High CPU with heavy disk writes; Extreme file writes: 2500; Mass file renames: 2500; New process with heavy IO; Running from temp directory: /tmp/svchost_helper",
+        "  \u26a0\ufe0f  DETECTED: README_DECRYPT.exe (PID 66602) | Score: 0.55 | Severity: low | Reason: Excessive file writes: 500; New process with heavy IO; Running from temp directory: /tmp/README_DECRYPT",
+        "  \u26a0\ufe0f  DETECTED: vssadmin_clone.exe (PID 66603) | Score: 1.00 | Severity: critical | Reason: High CPU with heavy disk writes; Excessive file writes: 100; Mass file renames: 50; New process with immediate high CPU; New process with heavy IO; Running from temp directory: /tmp/vssadmin_clone"
+      ]
+    },
+    {
+      "name": "Network Flood / Port Scan",
+      "attack_type": "network_flood",
+      "behaviors_generated": 3,
+      "threats_detected": 3,
+      "detection_rate": 1.0,
+      "avg_anomaly_score": 0.8833,
+      "max_anomaly_score": 1.0,
+      "duration_seconds": 0.22,
+      "details": [
+        "  \u26a0\ufe0f  DETECTED: netscan_svc.exe (PID 77701) | Score: 1.00 | Severity: critical | Reason: Extreme outbound connections: 245; Excessive connections: 250; Extreme thread count: 64; New process with many connections; Running from temp directory: /tmp/netscan_svc",
+        "  \u26a0\ufe0f  DETECTED: update_checker.exe (PID 77702) | Score: 0.65 | Severity: medium | Reason: Many outbound connections: 48; Beaconing behavior: exec_freq=30 with outbound=48; Running from temp directory: /tmp/update_checker",
+        "  \u26a0\ufe0f  DETECTED: worker_pool.exe (PID 77703) | Score: 1.00 | Severity: critical | Reason: Extreme outbound connections: 498; Excessive connections: 500; Extreme thread count: 128; Running from temp directory: /tmp/worker_pool"
+      ]
+    },
+    {
+      "name": "Data Exfiltration",
+      "attack_type": "exfiltration",
+      "behaviors_generated": 3,
+      "threats_detected": 3,
+      "detection_rate": 1.0,
+      "avg_anomaly_score": 0.8833,
+      "max_anomaly_score": 1.0,
+      "duration_seconds": 0.33,
+      "details": [
+        "  \u26a0\ufe0f  DETECTED: sys_inventory.exe (PID 88801) | Score: 0.65 | Severity: medium | Reason: Extreme disk read rate: 105 MB/s; Data exfiltration pattern: high reads + outbound connections; Running from temp directory: /tmp/sys_inventory",
+        "  \u26a0\ufe0f  DETECTED: cloud_sync.exe (PID 88802) | Score: 1.00 | Severity: critical | Reason: Extreme outbound connections: 118; Excessive connections: 120; Extreme disk read rate: 52 MB/s; Data exfiltration pattern: high reads + outbound connections; Running from temp directory: /tmp/cloud_sync",
+        "  \u26a0\ufe0f  DETECTED: dns_helper.exe (PID 88803) | Score: 1.00 | Severity: critical | Reason: Extreme outbound connections: 200; Excessive connections: 200; Beaconing behavior: exec_freq=100 with outbound=200; Running from temp directory: /tmp/dns_helper"
+      ]
+    }
+  ],
+  "normal_baseline": {
+    "behaviors_tested": 5,
+    "false_positives": 0,
+    "false_positive_rate": 0.0
+  }
+}

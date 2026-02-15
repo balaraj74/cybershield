@@ -1,0 +1,303 @@
+2026-02-16 00:31:03 | cybershield.agent         | INFO     | Testing backend connection...
+2026-02-16 00:31:03 | cybershield.agent         | ERROR    | ❌ Cannot connect to backend
+2026-02-16 00:33:25 | cybershield.agent         | INFO     | Testing backend connection...
+2026-02-16 00:33:25 | cybershield.agent         | WARNING  | Backend returned status 500
+2026-02-16 00:41:05 | cybershield.agent         | INFO     | Testing backend connection...
+2026-02-16 00:41:05 | cybershield.agent         | WARNING  | Backend returned status 500
+2026-02-16 00:48:00 | cybershield.agent         | INFO     | Testing backend connection...
+2026-02-16 00:48:00 | cybershield.agent         | INFO     | ✅ Backend connected: {
+  "status": "healthy",
+  "version": "1.0.0",
+  "demoMode": false,
+  "database": "connected",
+  "ai_model": "loaded",
+  "timestamp": "2026-02-15T19:18:00.935731Z"
+}
+2026-02-16 00:48:08 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 00:48:08 | cybershield.agent         | INFO     |   CyberShield AI - Endpoint Agent
+2026-02-16 00:48:08 | cybershield.agent         | INFO     |   Device ID:   47b2a2c1-c0a5-4395-9559-8334b79b7f03
+2026-02-16 00:48:08 | cybershield.agent         | INFO     |   Device Name: balaraj-Victus
+2026-02-16 00:48:08 | cybershield.agent         | INFO     |   OS:          Linux 6.18.7-061807-generic
+2026-02-16 00:48:08 | cybershield.agent         | INFO     |   Backend:     http://localhost:8001
+2026-02-16 00:48:08 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 00:48:08 | cybershield.agent         | INFO     | ✅ Device registered with backend
+2026-02-16 00:48:08 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Documents
+2026-02-16 00:48:08 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Desktop
+2026-02-16 00:48:08 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Downloads
+2026-02-16 00:48:08 | cybershield.filesystem    | INFO     | File system watcher started - monitoring 3 directories
+2026-02-16 00:48:08 | cybershield.agent         | INFO     | 🚀 Agent started - monitoring endpoint...
+2026-02-16 00:48:08 | cybershield.filesystem    | INFO     | File system watcher stopped
+2026-02-16 00:48:08 | cybershield.agent         | INFO     | 🛑 Agent stopped
+2026-02-16 00:49:24 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 00:49:24 | cybershield.agent         | INFO     |   CyberShield AI - Endpoint Agent
+2026-02-16 00:49:24 | cybershield.agent         | INFO     |   Device ID:   47b2a2c1-c0a5-4395-9559-8334b79b7f03
+2026-02-16 00:49:24 | cybershield.agent         | INFO     |   Device Name: balaraj-Victus
+2026-02-16 00:49:24 | cybershield.agent         | INFO     |   OS:          Linux 6.18.7-061807-generic
+2026-02-16 00:49:24 | cybershield.agent         | INFO     |   Backend:     http://localhost:8001
+2026-02-16 00:49:24 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 00:49:24 | cybershield.agent         | INFO     | ✅ Device registered with backend
+2026-02-16 00:49:24 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Documents
+2026-02-16 00:49:24 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Desktop
+2026-02-16 00:49:24 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Downloads
+2026-02-16 00:49:24 | cybershield.filesystem    | INFO     | File system watcher started - monitoring 3 directories
+2026-02-16 00:49:24 | cybershield.agent         | INFO     | 🚀 Agent started - monitoring endpoint...
+2026-02-16 00:49:24 | cybershield.filesystem    | INFO     | File system watcher stopped
+2026-02-16 00:49:24 | cybershield.agent         | INFO     | 🛑 Agent stopped
+2026-02-16 00:49:59 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 00:49:59 | cybershield.agent         | INFO     |   CyberShield AI - Endpoint Agent
+2026-02-16 00:49:59 | cybershield.agent         | INFO     |   Device ID:   47b2a2c1-c0a5-4395-9559-8334b79b7f03
+2026-02-16 00:49:59 | cybershield.agent         | INFO     |   Device Name: balaraj-Victus
+2026-02-16 00:49:59 | cybershield.agent         | INFO     |   OS:          Linux 6.18.7-061807-generic
+2026-02-16 00:49:59 | cybershield.agent         | INFO     |   Backend:     http://localhost:8001
+2026-02-16 00:49:59 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 00:49:59 | cybershield.agent         | INFO     | ✅ Device registered with backend
+2026-02-16 00:49:59 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Documents
+2026-02-16 00:49:59 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Desktop
+2026-02-16 00:49:59 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Downloads
+2026-02-16 00:49:59 | cybershield.filesystem    | INFO     | File system watcher started - monitoring 3 directories
+2026-02-16 00:49:59 | cybershield.agent         | INFO     | 🚀 Agent started - monitoring endpoint...
+2026-02-16 00:49:59 | cybershield.monitor       | INFO     | Scanned 421 processes | New: 421 | Terminated: 0
+2026-02-16 00:50:10 | cybershield.monitor       | INFO     | Scanned 422 processes | New: 1 | Terminated: 0
+2026-02-16 00:50:20 | cybershield.monitor       | INFO     | Scanned 422 processes | New: 0 | Terminated: 0
+2026-02-16 00:50:31 | cybershield.monitor       | INFO     | Scanned 422 processes | New: 1 | Terminated: 1
+2026-02-16 00:50:31 | cybershield.agent         | INFO     | 📤 Report sent (4 scans) | Threats detected: 0
+2026-02-16 00:50:42 | cybershield.monitor       | INFO     | Scanned 429 processes | New: 7 | Terminated: 0
+2026-02-16 00:50:52 | cybershield.monitor       | INFO     | Scanned 426 processes | New: 0 | Terminated: 3
+2026-02-16 00:50:52 | cybershield.agent         | INFO     | 📊 Scan #6 | Processes: 426 | File events: 0 | Net conns: 105 | Cycle: 0.44s
+2026-02-16 00:51:03 | cybershield.monitor       | INFO     | Scanned 426 processes | New: 0 | Terminated: 0
+2026-02-16 00:51:03 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:51:13 | cybershield.monitor       | INFO     | Scanned 432 processes | New: 7 | Terminated: 1
+2026-02-16 00:51:24 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 1 | Terminated: 0
+2026-02-16 00:51:34 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:51:35 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:51:45 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:51:56 | cybershield.monitor       | INFO     | Scanned 434 processes | New: 1 | Terminated: 0
+2026-02-16 00:51:56 | cybershield.agent         | INFO     | 📊 Scan #12 | Processes: 434 | File events: 0 | Net conns: 146 | Cycle: 0.46s
+2026-02-16 00:52:06 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 1 | Terminated: 2
+2026-02-16 00:52:07 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:52:17 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:52:28 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:52:38 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:52:38 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:52:49 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:52:59 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:53:00 | cybershield.agent         | INFO     | 📊 Scan #18 | Processes: 433 | File events: 0 | Net conns: 128 | Cycle: 0.51s
+2026-02-16 00:53:10 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 0 | Terminated: 0
+2026-02-16 00:53:10 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:53:21 | cybershield.monitor       | INFO     | Scanned 433 processes | New: 2 | Terminated: 2
+2026-02-16 00:53:31 | cybershield.monitor       | INFO     | Scanned 435 processes | New: 2 | Terminated: 0
+2026-02-16 00:53:42 | cybershield.monitor       | INFO     | Scanned 435 processes | New: 0 | Terminated: 0
+2026-02-16 00:53:42 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:53:53 | cybershield.monitor       | INFO     | Scanned 435 processes | New: 0 | Terminated: 0
+2026-02-16 00:54:03 | cybershield.monitor       | INFO     | Scanned 435 processes | New: 0 | Terminated: 0
+2026-02-16 00:54:03 | cybershield.agent         | INFO     | 📊 Scan #24 | Processes: 435 | File events: 0 | Net conns: 131 | Cycle: 0.48s
+2026-02-16 00:54:13 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 22
+2026-02-16 00:54:14 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:54:24 | cybershield.monitor       | INFO     | Scanned 411 processes | New: 0 | Terminated: 2
+2026-02-16 00:54:35 | cybershield.monitor       | INFO     | Scanned 411 processes | New: 0 | Terminated: 0
+2026-02-16 00:54:45 | cybershield.monitor       | INFO     | Scanned 412 processes | New: 1 | Terminated: 0
+2026-02-16 00:54:46 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:54:56 | cybershield.monitor       | INFO     | Scanned 412 processes | New: 0 | Terminated: 0
+2026-02-16 00:55:07 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 1 | Terminated: 0
+2026-02-16 00:55:07 | cybershield.agent         | INFO     | 📊 Scan #30 | Processes: 413 | File events: 0 | Net conns: 141 | Cycle: 0.51s
+2026-02-16 00:55:17 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:55:18 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:55:28 | cybershield.monitor       | INFO     | Scanned 412 processes | New: 0 | Terminated: 1
+2026-02-16 00:55:39 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 4 | Terminated: 0
+2026-02-16 00:55:49 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 3
+2026-02-16 00:55:50 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:56:00 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:56:10 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:56:11 | cybershield.agent         | INFO     | 📊 Scan #36 | Processes: 413 | File events: 0 | Net conns: 129 | Cycle: 0.48s
+2026-02-16 00:56:21 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:56:21 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:56:32 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:56:42 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:56:53 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 00:56:53 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:57:04 | cybershield.monitor       | INFO     | Scanned 412 processes | New: 0 | Terminated: 1
+2026-02-16 00:57:14 | cybershield.monitor       | INFO     | Scanned 412 processes | New: 0 | Terminated: 0
+2026-02-16 00:57:14 | cybershield.agent         | INFO     | 📊 Scan #42 | Processes: 412 | File events: 0 | Net conns: 121 | Cycle: 0.46s
+2026-02-16 00:57:25 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 1 | Terminated: 0
+2026-02-16 00:57:25 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:57:36 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 3 | Terminated: 0
+2026-02-16 00:57:46 | cybershield.monitor       | INFO     | Scanned 414 processes | New: 1 | Terminated: 3
+2026-02-16 00:57:57 | cybershield.monitor       | INFO     | Scanned 414 processes | New: 0 | Terminated: 0
+2026-02-16 00:57:57 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:58:08 | cybershield.monitor       | INFO     | Scanned 414 processes | New: 0 | Terminated: 0
+2026-02-16 00:58:18 | cybershield.monitor       | INFO     | Scanned 414 processes | New: 0 | Terminated: 0
+2026-02-16 00:58:18 | cybershield.agent         | INFO     | 📊 Scan #48 | Processes: 414 | File events: 0 | Net conns: 129 | Cycle: 0.52s
+2026-02-16 00:58:29 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 3 | Terminated: 1
+2026-02-16 00:58:29 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:58:40 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 00:58:50 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 00:59:01 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 00:59:01 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:59:11 | cybershield.monitor       | INFO     | Scanned 419 processes | New: 3 | Terminated: 0
+2026-02-16 00:59:22 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 3
+2026-02-16 00:59:22 | cybershield.agent         | INFO     | 📊 Scan #54 | Processes: 416 | File events: 0 | Net conns: 127 | Cycle: 0.47s
+2026-02-16 00:59:32 | cybershield.monitor       | INFO     | Scanned 419 processes | New: 4 | Terminated: 1
+2026-02-16 00:59:33 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 00:59:44 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 3
+2026-02-16 00:59:54 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 2
+2026-02-16 01:00:05 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 0
+2026-02-16 01:00:05 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:00:16 | cybershield.monitor       | INFO     | Scanned 414 processes | New: 0 | Terminated: 1
+2026-02-16 01:00:26 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 2 | Terminated: 0
+2026-02-16 01:00:26 | cybershield.agent         | INFO     | 📊 Scan #60 | Processes: 416 | File events: 0 | Net conns: 161 | Cycle: 0.51s
+2026-02-16 01:00:37 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:00:37 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:00:48 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:00:58 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 1 | Terminated: 1
+2026-02-16 01:01:09 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 0
+2026-02-16 01:01:09 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:01:20 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:01:30 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:01:31 | cybershield.agent         | INFO     | 📊 Scan #66 | Processes: 417 | File events: 0 | Net conns: 148 | Cycle: 0.58s
+2026-02-16 01:01:41 | cybershield.monitor       | INFO     | Scanned 420 processes | New: 3 | Terminated: 0
+2026-02-16 01:01:42 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:01:52 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 3
+2026-02-16 01:02:03 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 1 | Terminated: 0
+2026-02-16 01:02:13 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:02:14 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:02:25 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:02:35 | cybershield.monitor       | INFO     | Scanned 420 processes | New: 13 | Terminated: 11
+2026-02-16 01:02:35 | cybershield.agent         | INFO     | 📊 Scan #72 | Processes: 420 | File events: 0 | Net conns: 136 | Cycle: 0.53s
+2026-02-16 01:02:41 | cybershield.agent         | INFO     | Shutdown signal received...
+2026-02-16 01:02:41 | cybershield.filesystem    | INFO     | File system watcher stopped
+2026-02-16 01:02:41 | cybershield.agent         | INFO     | 📤 Report sent (2 scans) | Threats detected: 0
+2026-02-16 01:02:41 | cybershield.agent         | INFO     | 🛑 Agent stopped
+2026-02-16 01:02:41 | cybershield.filesystem    | INFO     | File system watcher stopped
+2026-02-16 01:02:41 | cybershield.agent         | INFO     | 🛑 Agent stopped
+2026-02-16 01:10:02 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 01:10:02 | cybershield.agent         | INFO     |   CyberShield AI - Endpoint Agent
+2026-02-16 01:10:02 | cybershield.agent         | INFO     |   Device ID:   47b2a2c1-c0a5-4395-9559-8334b79b7f03
+2026-02-16 01:10:02 | cybershield.agent         | INFO     |   Device Name: balaraj-Victus
+2026-02-16 01:10:02 | cybershield.agent         | INFO     |   OS:          Linux 6.18.7-061807-generic
+2026-02-16 01:10:02 | cybershield.agent         | INFO     |   Backend:     http://localhost:8001
+2026-02-16 01:10:02 | cybershield.agent         | INFO     | ============================================================
+2026-02-16 01:10:02 | cybershield.agent         | INFO     | ✅ Device registered with backend
+2026-02-16 01:10:02 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Documents
+2026-02-16 01:10:02 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Desktop
+2026-02-16 01:10:02 | cybershield.filesystem    | INFO     | Watching directory: /home/balaraj/Downloads
+2026-02-16 01:10:02 | cybershield.filesystem    | INFO     | File system watcher started - monitoring 3 directories
+2026-02-16 01:10:02 | cybershield.agent         | INFO     | 🚀 Agent started - monitoring endpoint...
+2026-02-16 01:10:02 | cybershield.monitor       | INFO     | Scanned 425 processes | New: 425 | Terminated: 0
+2026-02-16 01:10:13 | cybershield.monitor       | INFO     | Scanned 423 processes | New: 1 | Terminated: 3
+2026-02-16 01:10:23 | cybershield.monitor       | INFO     | Scanned 423 processes | New: 0 | Terminated: 0
+2026-02-16 01:10:34 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 7
+2026-02-16 01:10:35 | cybershield.agent         | INFO     | 📤 Report sent (4 scans) | Threats detected: 0
+2026-02-16 01:10:45 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 1
+2026-02-16 01:10:56 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 2 | Terminated: 0
+2026-02-16 01:10:56 | cybershield.agent         | INFO     | 📊 Scan #6 | Processes: 417 | File events: 0 | Net conns: 136 | Cycle: 0.56s
+2026-02-16 01:11:07 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:11:07 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:11:18 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:11:28 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 1 | Terminated: 0
+2026-02-16 01:11:39 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:11:39 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:11:50 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 2
+2026-02-16 01:12:00 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 1
+2026-02-16 01:12:00 | cybershield.agent         | INFO     | 📊 Scan #12 | Processes: 417 | File events: 0 | Net conns: 141 | Cycle: 0.51s
+2026-02-16 01:12:11 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:12:11 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:12:22 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 1
+2026-02-16 01:12:33 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:12:43 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:12:44 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:12:54 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 0
+2026-02-16 01:13:05 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:13:06 | cybershield.agent         | INFO     | 📊 Scan #18 | Processes: 417 | File events: 0 | Net conns: 123 | Cycle: 1.77s
+2026-02-16 01:13:17 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:13:17 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:13:28 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 3 | Terminated: 2
+2026-02-16 01:13:38 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:13:49 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:13:50 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:14:00 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:14:11 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:14:11 | cybershield.agent         | INFO     | 📊 Scan #24 | Processes: 418 | File events: 0 | Net conns: 128 | Cycle: 0.53s
+2026-02-16 01:14:21 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:14:22 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:14:32 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 2
+2026-02-16 01:14:43 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:14:53 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:14:54 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:15:05 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:15:15 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:15:15 | cybershield.agent         | INFO     | 📊 Scan #30 | Processes: 416 | File events: 0 | Net conns: 125 | Cycle: 0.53s
+2026-02-16 01:15:26 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:15:26 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:15:37 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 1
+2026-02-16 01:15:47 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 1 | Terminated: 0
+2026-02-16 01:15:58 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 0 | Terminated: 0
+2026-02-16 01:15:59 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:16:09 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 1
+2026-02-16 01:16:20 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 0
+2026-02-16 01:16:20 | cybershield.agent         | INFO     | 📊 Scan #36 | Processes: 415 | File events: 0 | Net conns: 121 | Cycle: 0.59s
+2026-02-16 01:16:30 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 2
+2026-02-16 01:16:31 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:16:41 | cybershield.monitor       | INFO     | Scanned 413 processes | New: 0 | Terminated: 0
+2026-02-16 01:16:52 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 2 | Terminated: 0
+2026-02-16 01:17:02 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 0 | Terminated: 0
+2026-02-16 01:17:03 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:17:14 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 1 | Terminated: 1
+2026-02-16 01:17:24 | cybershield.monitor       | INFO     | Scanned 415 processes | New: 1 | Terminated: 1
+2026-02-16 01:17:25 | cybershield.agent         | INFO     | 📊 Scan #42 | Processes: 415 | File events: 0 | Net conns: 141 | Cycle: 0.61s
+2026-02-16 01:17:35 | cybershield.monitor       | INFO     | Scanned 416 processes | New: 1 | Terminated: 0
+2026-02-16 01:17:36 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:17:46 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 2 | Terminated: 1
+2026-02-16 01:17:57 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:18:08 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 1
+2026-02-16 01:18:08 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:18:19 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:18:30 | cybershield.monitor       | INFO     | Scanned 419 processes | New: 3 | Terminated: 1
+2026-02-16 01:18:30 | cybershield.agent         | INFO     | 📊 Scan #48 | Processes: 419 | File events: 0 | Net conns: 148 | Cycle: 0.82s
+2026-02-16 01:18:40 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 1
+2026-02-16 01:18:41 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:18:52 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:19:02 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:19:13 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:19:13 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:19:24 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 1
+2026-02-16 01:19:34 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:19:35 | cybershield.agent         | INFO     | 📊 Scan #54 | Processes: 417 | File events: 0 | Net conns: 137 | Cycle: 0.58s
+2026-02-16 01:19:45 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 0 | Terminated: 0
+2026-02-16 01:19:45 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:19:56 | cybershield.monitor       | INFO     | Scanned 417 processes | New: 1 | Terminated: 1
+2026-02-16 01:20:06 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 1 | Terminated: 0
+2026-02-16 01:20:17 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 1 | Terminated: 1
+2026-02-16 01:20:18 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:20:28 | cybershield.monitor       | INFO     | Scanned 421 processes | New: 3 | Terminated: 0
+2026-02-16 01:20:39 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 3
+2026-02-16 01:20:39 | cybershield.agent         | INFO     | 📊 Scan #60 | Processes: 418 | File events: 0 | Net conns: 148 | Cycle: 0.61s
+2026-02-16 01:20:49 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:20:50 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:21:00 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:21:11 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:21:21 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:21:22 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:21:32 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:21:43 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:21:43 | cybershield.agent         | INFO     | 📊 Scan #66 | Processes: 418 | File events: 0 | Net conns: 133 | Cycle: 0.51s
+2026-02-16 01:21:53 | cybershield.monitor       | INFO     | Scanned 418 processes | New: 0 | Terminated: 0
+2026-02-16 01:21:54 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:22:04 | cybershield.monitor       | INFO     | Scanned 399 processes | New: 0 | Terminated: 19
+2026-02-16 01:22:15 | cybershield.monitor       | INFO     | Scanned 399 processes | New: 0 | Terminated: 0
+2026-02-16 01:22:25 | cybershield.monitor       | INFO     | Scanned 399 processes | New: 0 | Terminated: 0
+2026-02-16 01:22:26 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:22:36 | cybershield.monitor       | INFO     | Scanned 399 processes | New: 0 | Terminated: 0
+2026-02-16 01:22:46 | cybershield.monitor       | INFO     | Scanned 396 processes | New: 0 | Terminated: 3
+2026-02-16 01:22:47 | cybershield.agent         | INFO     | 📊 Scan #72 | Processes: 396 | File events: 0 | Net conns: 109 | Cycle: 0.43s
+2026-02-16 01:22:57 | cybershield.monitor       | INFO     | Scanned 395 processes | New: 0 | Terminated: 1
+2026-02-16 01:22:57 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:23:08 | cybershield.monitor       | INFO     | Scanned 395 processes | New: 0 | Terminated: 0
+2026-02-16 01:23:18 | cybershield.monitor       | INFO     | Scanned 395 processes | New: 0 | Terminated: 0
+2026-02-16 01:23:29 | cybershield.monitor       | INFO     | Scanned 397 processes | New: 3 | Terminated: 1
+2026-02-16 01:23:29 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:23:40 | cybershield.monitor       | INFO     | Scanned 397 processes | New: 0 | Terminated: 0
+2026-02-16 01:23:50 | cybershield.monitor       | INFO     | Scanned 397 processes | New: 0 | Terminated: 0
+2026-02-16 01:23:50 | cybershield.agent         | INFO     | 📊 Scan #78 | Processes: 397 | File events: 0 | Net conns: 104 | Cycle: 0.52s
+2026-02-16 01:24:01 | cybershield.monitor       | INFO     | Scanned 397 processes | New: 0 | Terminated: 0
+2026-02-16 01:24:01 | cybershield.agent         | INFO     | 📤 Report sent (3 scans) | Threats detected: 0
+2026-02-16 01:24:12 | cybershield.monitor       | INFO     | Scanned 397 processes | New: 0 | Terminated: 0

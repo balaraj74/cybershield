@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import {
     LayoutDashboard,
     Shield,
@@ -94,37 +95,47 @@ function DockIcon({
     const Icon = item.icon;
 
     return (
-        <div ref={ref} className="relative group flex items-center justify-center">
-            <Link
-                href={item.href}
-                className={cn(
-                    "relative flex items-center justify-center rounded-xl transition-all duration-200 ease-out",
-                    isActive
-                        ? "bg-orange-500/15 text-orange-400 shadow-lg shadow-orange-500/10"
-                        : "text-neutral-500 hover:text-neutral-200 hover:bg-neutral-800/60"
-                )}
-                style={{
-                    width: `${scale * 40}px`,
-                    height: `${scale * 40}px`,
-                }}
-            >
-                <Icon
-                    style={{
-                        width: `${scale * 18}px`,
-                        height: `${scale * 18}px`,
-                    }}
-                    className="transition-colors duration-150"
-                />
-                {isActive && (
-                    <span className="absolute -right-0.5 top-1/2 -translate-y-1/2 w-[3px] h-3 rounded-full bg-orange-500" />
-                )}
-            </Link>
-            {/* Tooltip */}
-            <div className="absolute left-full ml-3 px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-700/50 text-[11px] font-medium text-white whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-150 shadow-xl z-50">
-                {item.label}
-                <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-neutral-900" />
+        <Tooltip>
+            <div ref={ref} className="relative flex items-center justify-center">
+                <TooltipTrigger asChild>
+                    <Link
+                        href={item.href}
+                        className={cn(
+                            "relative flex items-center justify-center rounded-xl transition-all duration-200 ease-out group",
+                            isActive
+                                ? "bg-orange-500/15 text-orange-400 shadow-lg shadow-orange-500/10"
+                                : "text-neutral-500 hover:text-neutral-200 hover:bg-neutral-800/60"
+                        )}
+                        style={{
+                            width: `${scale * 40}px`,
+                            height: `${scale * 40}px`,
+                        }}
+                    >
+                        <Icon
+                            style={{
+                                width: `${scale * 19}px`,
+                                height: `${scale * 19}px`,
+                            }}
+                            className={cn(
+                                "transition-all duration-300",
+                                isActive ? "drop-shadow-[0_0_8px_rgba(232,93,4,0.6)]" : "group-hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]"
+                            )}
+                        />
+                        {isActive && (
+                            <span className="absolute -left-1 top-1/2 -translate-y-1/2 w-[3px] h-4 rounded-r-md bg-orange-500 shadow-[0_0_10px_rgba(232,93,4,0.8)]" />
+                        )}
+                    </Link>
+                </TooltipTrigger>
             </div>
-        </div>
+            {/* Radix Portal-based Glassmorphic Tooltip avoids overflow clipping */}
+            <TooltipContent
+                side="right"
+                sideOffset={14}
+                className="glass-panel text-white font-semibold tracking-wide text-[12px] px-3 py-1.5 shadow-2xl border-white/10"
+            >
+                {item.label}
+            </TooltipContent>
+        </Tooltip>
     );
 }
 
@@ -165,57 +176,68 @@ export function FloatingDock() {
     let lastGroup = "";
 
     return (
-        <div
-            ref={dockRef}
-            className="fixed left-3 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-        >
-            <div className="relative flex flex-col items-center gap-1 rounded-2xl border border-neutral-800/50 bg-[#0c0c0c]/90 backdrop-blur-2xl p-2 shadow-2xl shadow-black/50">
-                {/* Logo at top */}
-                <Link
-                    href="/dashboard"
-                    className="flex items-center justify-center w-10 h-10 rounded-xl mb-1 group"
-                >
-                    <div className="relative">
-                        <Shield className="h-6 w-6 text-orange-500 group-hover:text-orange-400 transition-colors" />
-                    </div>
-                </Link>
+        <TooltipProvider delayDuration={50}>
+            <div
+                ref={dockRef}
+                className="fixed left-3 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+            >
+                <div className="relative flex flex-col items-center gap-1.5 rounded-[1.25rem] border border-neutral-800/40 glass-panel py-3 px-2.5 shadow-[0_0_40px_-10px_rgba(0,0,0,0.8)] max-h-[calc(100vh-2rem)]">
+                    {/* Ambient edge glow */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-neutral-500/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-neutral-500/20 to-transparent" />
 
-                <div className="w-6 h-px bg-neutral-800/60 mb-1" />
-
-                {/* Dock items */}
-                {uniqueItems.map((item, idx) => {
-                    const isActive = pathname === item.href ||
-                        (item.href !== "/modules" && pathname.startsWith(item.href) && item.href !== "/");
-                    const showSep = item.group !== lastGroup && idx > 0;
-                    lastGroup = item.group || "";
-
-                    return (
-                        <div key={item.href}>
-                            {showSep && <div className="w-6 h-px bg-neutral-800/40 my-1 mx-auto" />}
-                            <DockIcon
-                                item={item}
-                                isActive={isActive}
-                                mouseX={mouseY}
-                                index={idx}
-                                totalInView={uniqueItems.length}
-                            />
+                    {/* Logo at top */}
+                    <Link
+                        href="/dashboard"
+                        className="flex items-center justify-center w-11 h-11 rounded-2xl mb-1 group relative overflow-hidden shrink-0"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative">
+                            <Shield className="h-6 w-6 text-orange-500 group-hover:text-orange-400 group-hover:drop-shadow-[0_0_8px_rgba(244,140,6,0.5)] transition-all duration-300" />
                         </div>
-                    );
-                })}
+                    </Link>
 
-                <div className="w-6 h-px bg-neutral-800/60 mt-1" />
+                    <div className="w-6 h-px bg-neutral-800/60 mb-0 shrink-0" />
 
-                {/* Expand / Collapse */}
-                <button
-                    onClick={() => setExpanded(!expanded)}
-                    className="flex items-center justify-center w-8 h-8 rounded-lg text-neutral-600 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all mt-0.5"
-                    title={expanded ? "Show less" : "Show all"}
-                >
-                    {expanded ? <X className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                </button>
+                    {/* Dock items wrapper for scrolling */}
+                    <div className="flex flex-col items-center flex-1 overflow-y-auto scrollbar-hide w-full gap-0 pb-1 min-h-0">
+                        {uniqueItems.map((item, idx) => {
+                            const isActive = pathname === item.href ||
+                                (item.href !== "/modules" && pathname.startsWith(item.href) && item.href !== "/");
+                            const showSep = item.group !== lastGroup && idx > 0;
+                            lastGroup = item.group || "";
+
+                            return (
+                                <div key={item.href} className="flex flex-col items-center w-full">
+                                    {showSep && <div className="w-6 h-px bg-neutral-800/40 my-2 mx-auto shrink-0" />}
+                                    <div className="my-[3px]">
+                                        <DockIcon
+                                            item={item}
+                                            isActive={isActive}
+                                            mouseX={mouseY}
+                                            index={idx}
+                                            totalInView={uniqueItems.length}
+                                        />
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="w-6 h-px bg-neutral-800/60 mt-1 shrink-0" />
+
+                    {/* Expand / Collapse */}
+                    <button
+                        onClick={() => setExpanded(!expanded)}
+                        className="flex items-center justify-center w-8 h-8 rounded-lg text-neutral-600 hover:text-neutral-300 hover:bg-neutral-800/50 transition-all mt-0.5 shrink-0"
+                        title={expanded ? "Show less" : "Show all"}
+                    >
+                        {expanded ? <X className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                    </button>
+                </div>
             </div>
-        </div>
+        </TooltipProvider>
     );
 }

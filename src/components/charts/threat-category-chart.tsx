@@ -27,13 +27,13 @@ interface ThreatCategoryChartProps {
 // Warm color mapping for threat types
 const threatColors: Record<ThreatType, string> = {
     phishing: "#ef4444",
-    malware: "#e85d04",
+    malware: "#f97316",
     spam: "#f59e0b",
     social_engineering: "#d946ef",
     credential_theft: "#f43f5e",
-    url_threat: "#f97316",
+    url_threat: "#ea580c",
     data_exfiltration: "#dc2f02",
-    unknown: "#525252",
+    unknown: "#737373",
 };
 
 // Human-readable labels
@@ -59,18 +59,24 @@ function CustomTooltip({
     if (active && payload && payload.length) {
         const data = payload[0].payload;
         return (
-            <div className="rounded-lg border border-neutral-700/50 bg-neutral-900 p-3 shadow-xl">
-                <div className="flex items-center gap-2">
-                    <span
-                        className="h-3 w-3 rounded-full"
-                        style={{ backgroundColor: data.color }}
-                    />
-                    <span className="text-sm font-medium text-white">{data.name}</span>
+            <div className="glass-panel p-3 rounded-lg shadow-2xl relative overflow-hidden">
+                <div
+                    className="absolute inset-0 opacity-20"
+                    style={{ background: `radial-gradient(circle at top right, ${data.color}, transparent 70%)` }}
+                />
+                <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-1">
+                        <span
+                            className="h-2 w-2 rounded-full shadow-[0_0_8px_currentColor]"
+                            style={{ backgroundColor: data.color, color: data.color }}
+                        />
+                        <span className="text-xs font-semibold text-neutral-300 uppercase tracking-wider">{data.name}</span>
+                    </div>
+                    <p className="text-xl font-bold text-white">
+                        {data.value}{" "}
+                        <span className="text-xs font-medium text-neutral-500">detected</span>
+                    </p>
                 </div>
-                <p className="mt-1 text-lg font-semibold text-white">
-                    {data.value}{" "}
-                    <span className="text-sm font-normal text-neutral-400">detected</span>
-                </p>
             </div>
         );
     }
@@ -92,38 +98,48 @@ export function ThreatCategoryChart({
         .sort((a, b) => b.value - a.value);
 
     return (
-        <Card variant="elevated">
+        <Card className="glass-panel border-neutral-800/40 relative overflow-hidden group">
+            {/* Ambient Background Glow */}
+            <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-red-600/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
             <CardHeader>
-                <CardTitle className="text-base">{title}</CardTitle>
+                <CardTitle className="text-base font-semibold tracking-wide text-neutral-200">{title}</CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="h-[280px] w-full">
+                <div className="h-[280px] w-full mt-2 relative z-10">
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart
                             data={chartData}
                             layout="vertical"
-                            margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+                            margin={{ top: 5, right: 30, left: -20, bottom: 5 }}
                         >
                             <CartesianGrid
                                 strokeDasharray="3 3"
-                                stroke="#1e1e1e"
+                                stroke="#ffffff10"
                                 horizontal={true}
                                 vertical={false}
                             />
-                            <XAxis type="number" stroke="#525252" fontSize={12} tickLine={false} axisLine={false} />
+                            <XAxis type="number" stroke="#737373" fontSize={12} tickLine={false} axisLine={false} />
                             <YAxis
                                 type="category"
                                 dataKey="name"
-                                stroke="#525252"
+                                stroke="#737373"
                                 fontSize={12}
                                 tickLine={false}
                                 axisLine={false}
-                                width={90}
+                                width={110}
+                                tick={{ fill: '#a3a3a3' }}
                             />
-                            <Tooltip content={<CustomTooltip />} cursor={{ fill: "#141414" }} />
-                            <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={30}>
+                            <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
+                            <Bar
+                                dataKey="value"
+                                radius={[0, 4, 4, 0]}
+                                maxBarSize={24}
+                                animationDuration={1500}
+                                className="drop-shadow-lg"
+                            >
                                 {chartData.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={entry.color} />
+                                    <Cell key={`cell-${index}`} fill={entry.color} className="opacity-90 hover:opacity-100 transition-opacity duration-300" />
                                 ))}
                             </Bar>
                         </BarChart>

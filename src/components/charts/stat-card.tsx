@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
@@ -24,6 +25,7 @@ const variantStyles = {
         valueColor: "text-white",
         sparkColor: "#737373",
         trendColor: "text-neutral-400",
+        glow: "group-hover:shadow-[0_0_20px_-5px_theme(colors.neutral.400)]",
     },
     critical: {
         iconBg: "bg-red-500/10",
@@ -31,6 +33,7 @@ const variantStyles = {
         valueColor: "text-red-400",
         sparkColor: "#ef4444",
         trendColor: "text-red-400",
+        glow: "group-hover:shadow-[0_0_30px_-5px_rgba(239,68,68,0.3)]",
     },
     warning: {
         iconBg: "bg-orange-500/10",
@@ -38,6 +41,7 @@ const variantStyles = {
         valueColor: "text-orange-400",
         sparkColor: "#f97316",
         trendColor: "text-orange-400",
+        glow: "group-hover:shadow-[0_0_30px_-5px_rgba(249,115,22,0.3)]",
     },
     success: {
         iconBg: "bg-emerald-500/10",
@@ -45,19 +49,23 @@ const variantStyles = {
         valueColor: "text-emerald-400",
         sparkColor: "#22c55e",
         trendColor: "text-emerald-400",
+        glow: "group-hover:shadow-[0_0_30px_-5px_rgba(34,197,94,0.3)]",
     },
     info: {
-        iconBg: "bg-orange-500/10",
-        iconColor: "text-orange-400",
+        iconBg: "bg-orange-600/10",
+        iconColor: "text-orange-500",
         valueColor: "text-white",
         sparkColor: "#e85d04",
-        trendColor: "text-orange-400",
+        trendColor: "text-orange-500",
+        glow: "group-hover:shadow-[0_0_30px_-5px_rgba(232,93,4,0.3)]",
     },
 };
 
-// Simple sparkline bars
+// Animated sparkline bars
 function MiniSparkline({ color, variant }: { color: string; variant: string }) {
-    // Different bar patterns per variant
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
     const patterns: Record<string, number[]> = {
         default: [3, 5, 4, 7, 6, 8, 5, 7, 9, 6, 8, 7],
         critical: [6, 4, 7, 5, 8, 6, 4, 7, 3, 5, 4, 6],
@@ -68,15 +76,16 @@ function MiniSparkline({ color, variant }: { color: string; variant: string }) {
     const bars = patterns[variant] || patterns.default;
 
     return (
-        <div className="flex items-end gap-[2px] h-8">
+        <div className="flex items-end gap-[2px] h-8 overflow-hidden group">
             {bars.map((h, i) => (
                 <div
                     key={i}
-                    className="w-[3px] rounded-sm transition-all"
+                    className="w-[3px] rounded-sm transition-all duration-700 ease-out"
                     style={{
-                        height: `${h * 3.2}px`,
+                        height: mounted ? `${h * 3.2}px` : "2px",
                         backgroundColor: color,
-                        opacity: 0.6 + (i / bars.length) * 0.4,
+                        opacity: mounted ? 0.4 + (i / bars.length) * 0.6 : 0,
+                        transitionDelay: `${i * 30}ms`,
                     }}
                 />
             ))}
@@ -98,29 +107,42 @@ export function StatCard({
     return (
         <Card
             className={cn(
-                "relative overflow-hidden border-neutral-800/30 bg-[#111111] hover:bg-[#141414] transition-all duration-300",
+                "group relative overflow-hidden glass-panel border-neutral-800/40 hover:border-neutral-700 transition-all duration-500",
+                styles.glow,
                 className
             )}
         >
-            <CardContent className="p-5">
+            {/* Subtle inner grid background for that tech feel */}
+            <div className="absolute inset-0 bg-grid opacity-[0.2] pointer-events-none group-hover:opacity-[0.3] transition-opacity duration-500" />
+
+            {/* Ambient inner glow based on variant */}
+            <div
+                className={cn("absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500")}
+                style={{ backgroundColor: styles.sparkColor }}
+            />
+
+            <CardContent className="p-5 relative z-10">
                 <div className="flex items-start justify-between">
                     <div className="space-y-1.5 flex-1">
                         <div className="flex items-center gap-2">
-                            <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide">{title}</p>
+                            <Icon className={cn("w-4 h-4", styles.iconColor)} />
+                            <p className="text-xs font-semibold text-neutral-400 uppercase tracking-widest">{title}</p>
                             {trend && (
-                                <span className={cn("text-[10px] font-semibold", styles.trendColor)}>
+                                <span className={cn("text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-neutral-900/50", styles.trendColor)}>
                                     {trend.isPositive ? "↑" : "↓"} {Math.abs(trend.value)}%
                                 </span>
                             )}
                         </div>
-                        <div className="flex items-end gap-3">
-                            <p className={cn("text-2xl font-bold tracking-tight", styles.valueColor)}>
+                        <div className="flex items-end justify-between mt-2">
+                            <p className={cn("text-3xl font-extrabold tracking-tight translate-y-1", styles.valueColor)}>
                                 {value}
                             </p>
-                            <MiniSparkline color={styles.sparkColor} variant={variant} />
+                            <div className="translate-y-1 group-hover:scale-105 transition-transform duration-300">
+                                <MiniSparkline color={styles.sparkColor} variant={variant} />
+                            </div>
                         </div>
                         {subtitle && (
-                            <p className="text-[11px] text-neutral-600">{subtitle}</p>
+                            <p className="text-[11px] text-neutral-500 font-medium translate-y-1">{subtitle}</p>
                         )}
                     </div>
                 </div>

@@ -53,13 +53,23 @@ body {
 
 /* Accordion animation */
 @keyframes accordion-down {
-  from { height: 0; }
-  to { height: var(--radix-accordion-content-height); }
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
 }
 
 @keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); }
-  to { height: 0; }
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
 }
 
 .animate-accordion-down {
@@ -87,9 +97,12 @@ body {
 
 /* Pulse animation for critical alerts */
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
   }
+
   50% {
     box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
   }
@@ -101,17 +114,20 @@ body {
 
 /* Loading shimmer */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .shimmer {
-  background: linear-gradient(
-    90deg,
-    #141414 0%,
-    #1e1e1e 50%,
-    #141414 100%
-  );
+  background: linear-gradient(90deg,
+      #141414 0%,
+      #1e1e1e 50%,
+      #141414 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }
@@ -133,5 +149,67 @@ body {
 
 /* Subtle radial gradients for ambient effects */
 .ambient-glow {
-  background: radial-gradient(ellipse at 50% 0%, rgba(232, 93, 4, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(232, 93, 4, 0.08) 0%, transparent 60%);
+}
+
+/* Premium Background Patterns */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Radar Sweep Animation for cyber effect */
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(232, 93, 4, 0.2) 100%);
+  transform-origin: 0 0;
+  animation: radar-sweep 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Fade In Up Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }

@@ -29,6 +29,7 @@ import {
     Fish,
     UserX,
     ClipboardCheck,
+    BookOpen,
     HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -73,6 +74,7 @@ const navItems: NavItem[] = [
     { href: "/modules/insider-threat", label: "Insider Threat", icon: UserX },
     { href: "/modules/compliance", label: "Compliance", icon: ClipboardCheck },
     // Bottom
+    { href: "/docs", label: "Documentation", icon: BookOpen },
     { href: "/history", label: "History", icon: History },
     { href: "/settings", label: "Settings", icon: Settings },
 ];

@@ -24,6 +24,7 @@ import {
     Fish,
     UserX,
     ClipboardCheck,
+    BookOpen,
     History,
     Settings,
     ChevronUp,
@@ -59,6 +60,7 @@ const dockItems: DockItem[] = [
     { href: "/modules/phishing", label: "Phishing", icon: Fish, group: "ai" },
     { href: "/modules/insider-threat", label: "Insider", icon: UserX, group: "ai" },
     { href: "/modules/compliance", label: "Compliance", icon: ClipboardCheck, group: "ai" },
+    { href: "/docs", label: "Docs", icon: BookOpen, group: "system" },
     { href: "/history", label: "History", icon: History, group: "system" },
     { href: "/settings", label: "Settings", icon: Settings, group: "system" },
 ];
